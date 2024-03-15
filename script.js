@@ -30,11 +30,13 @@ let options = id("options");
 let question = id("question");
 let results = id("results");
 let scoreCounter = id("score");
+let categories = id("categories");
 
 let score = 0;
 
 hide(questionSet);
 hide(results);
+hide(categories);
 
 btn.addEventListener("click", (e)=>{
     startQuiz();
