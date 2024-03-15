@@ -15,8 +15,8 @@
 }
 
 @font-face {
-    font-family: 'Modak';
-    src: url('./assets/Modak/Modak-Regular.ttf') format('truetype');
+    font-family: 'PoetsenOne';
+    src: url('./assets/PoetsenOne-Regular/PoetsenOne-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -61,10 +61,14 @@ body {
 }
 
 .category-frame > .label {
+    font-family: "PoetsenOne";
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
     background: #FFFFFF;
     border: 5px solid #000000;
+    border-radius: 999999999px;
+    font-size: 2rem;
+    padding: 1px 20px;
 }
 
 .category-frame > img {
@@ -75,7 +79,7 @@ body {
 }
 
 #frame1 > img {
-    width: 110%;
+    width: 100%;
     top: -30px;
 }
 #frame2 {
@@ -89,20 +93,20 @@ body {
     background: #2E6FD1;
 }
 #frame3 > img {
-    width: 80%;
+    width: 70%;
 }
 #frame4 {
     background: #45D12E;
 }
 #frame4 > img {
-    width: 110%;
+    width: 100%;
     top: -30px;
 }
 #frame5 {
     background: #D12E2E;
 }
 #frame5 > img {
-    height: 80%;
+    height: 70%;
 }
 
 #frame2 {
@@ -125,7 +129,7 @@ body {
     background: #E97838;
 }
 #frame6 > img {
-    width: 80%;
+    width: 70%;
 }
 
 #menu {
