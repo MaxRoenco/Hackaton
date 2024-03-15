@@ -14,6 +14,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Modak';
+    src: url('./assets/Modak/Modak-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     display: flex;
     align-items: center;
@@ -66,18 +73,54 @@ body {
 #frame1 {
     background: #E7BF34;
 }
+
+#frame1 > img {
+    width: 110%;
+    top: -30px;
+}
 #frame2 {
     background: #2EBED1;
+}
+#frame2 > img {
+    width: 90%;
+    top: 40px;
 }
 #frame3 {
     background: #2E6FD1;
 }
+#frame3 > img {
+    width: 80%;
+}
 #frame4 {
     background: #45D12E;
+}
+#frame4 > img {
+    width: 110%;
+    top: -30px;
 }
 #frame5 {
     background: #D12E2E;
 }
+#frame5 > img {
+    height: 80%;
+}
+
+#frame2 {
+    background: #2EBED1;
+}
+
+#frame3 {
+    background: #2E6FD1;
+}
+
+#frame4 {
+    background: #45D12E;
+}
+
+#frame5 {
+    background: #D12E2E;
+}
+
 #frame6 {
     background: #E97838;
 }
