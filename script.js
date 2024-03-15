@@ -21,7 +21,7 @@ let quiz = [
     },
 ]
 
-let id = (s)=>document.getElementById(s);
+let id = (s) => document.getElementById(s);
 
 let btn = id("start");
 let menu = id("menu");
@@ -34,19 +34,19 @@ let categories = id("categories");
 
 let score = 0;
 
-hide(menu);
+// hide(menu);
 hide(questionSet);
 hide(results);
-// hide(categories);
+hide(categories);
 
-btn.addEventListener("click", (e)=>{
+btn.addEventListener("click", (e) => {
     startQuiz();
 })
 
 let index = -1;
 function nextQuestion() {
     index++;
-    if(index >= quiz.length) {
+    if (index >= quiz.length) {
         hide(questionSet);
         showResults();
         return;
@@ -58,10 +58,10 @@ function nextQuestion() {
         button.classList.add("button-59");
         button.textContent = element;
         options.append(button);
-        button.addEventListener("click", (e)=>{
+        button.addEventListener("click", (e) => {
             clearQuestion();
             let isCorrect = quiz[index].correctAnswer == i;
-            if(isCorrect) score++;
+            if (isCorrect) score++;
             nextQuestion();
         })
     });
