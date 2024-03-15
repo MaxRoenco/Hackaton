@@ -92,4 +92,3 @@ function removeAllChildren(parent) {
         parent.removeChild(parent.firstChild);
     }
 }
-
