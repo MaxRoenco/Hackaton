@@ -34,7 +34,7 @@ let categories = id("categories");
 
 let score = 0;
 
-
+hide(menu);
 hide(questionSet);
 hide(results);
 hide(categories);

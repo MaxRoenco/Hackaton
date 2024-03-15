@@ -9,7 +9,14 @@
 
 @font-face {
     font-family: 'Modak';
-    src: url('./Modak/Modak-Regular.ttf') format('truetype');
+    src: url('./assets/Modak/Modak-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Modak';
+    src: url('./assets/Modak/Modak-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -21,6 +28,7 @@ body {
     height: 100vh;
     background: #0F470E;
 }
+
 #categories {
     background-color: red;
     border-radius: 20px;
@@ -39,31 +47,85 @@ body {
 }
 
 .category-frame {
+    position: relative;
     width: 225px;
     height: 225px;
     background-color: red;
     border: 5px solid #000000;
     border-radius: 10%;
     margin: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
+.category-frame > .label {
+    position: absolute;
+    bottom: 0;
+    background: #FFFFFF;
+    border: 5px solid #000000;
+}
+
+.category-frame > img {
+    position: absolute;
+}
 #frame1 {
     background: #E7BF34;
+}
+
+#frame1 > img {
+    width: 110%;
+    top: -30px;
 }
 #frame2 {
     background: #2EBED1;
 }
+#frame2 > img {
+    width: 90%;
+    top: 40px;
+}
 #frame3 {
     background: #2E6FD1;
+}
+#frame3 > img {
+    width: 80%;
 }
 #frame4 {
     background: #45D12E;
 }
+#frame4 > img {
+    width: 110%;
+    top: -30px;
+}
 #frame5 {
     background: #D12E2E;
 }
+#frame5 > img {
+    height: 80%;
+}
+
+#frame2 {
+    background: #2EBED1;
+}
+
+#frame3 {
+    background: #2E6FD1;
+}
+
+#frame4 {
+    background: #45D12E;
+}
+
+#frame5 {
+    background: #D12E2E;
+}
+
 #frame6 {
     background: #E97838;
+}
+#frame6 > img {
+    width: 80%;
 }
 
 #menu {
@@ -73,6 +135,32 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+#menu>.imagecontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.home {
+    height: 60px;
+    position: absolute;
+    top: 5%;
+    right: 4%;
+
+}
+
+.home>#homeimage {
+    height: 100%;
+    width: auto;
+    margin: 10px, 10px 0, 0;
+}
+
+.image {
+    width: 600px;
+    height: auto;
 }
 
 #start {
@@ -93,7 +181,13 @@ body {
     line-height: 96px;
     letter-spacing: 0em;
     text-align: center;
+    color: white;
+    text-shadow: -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000;
 }
+
 
 #menu>h1 {
     padding: 100px;
