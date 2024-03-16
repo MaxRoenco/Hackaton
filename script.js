@@ -186,9 +186,13 @@ let quizCountElement = id("profilequizz_done");
 setActive("menu");
 updateScore(0);
 speak("");
-let wrongAnswers  = localStorage.getItem('wrongAnswers') || 0;
-let correctAnswers = localStorage.getItem('correctAnswers') || 0;
-let quizzesDone = localStorage.getItem('quizzesDone') || 0;
+let wrongAnswers  = +localStorage.getItem('wrongAnswers') || 0;
+let correctAnswers = +localStorage.getItem('correctAnswers') || 0;
+let quizzesDone = +localStorage.getItem('quizzesDone') || 0;
+
+updateCorrectCount(correctAnswers);
+updateWrongCount(wrongAnswers);
+updateQuizzesCount(quizzesDone);
 
 let index = -1;
 let canClick = true;
@@ -395,7 +399,7 @@ function updateCorrectCount(num) {
 function updateQuizzesCount(num) {
     quizzesDone = num;
     localStorage.setItem('quizzesDone', num);
-    quizCountElement = num;
+    quizCountElement.textContent = num;
 }
 
 function resetStats() {
