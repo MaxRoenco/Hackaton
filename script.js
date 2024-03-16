@@ -173,14 +173,22 @@ let currentCategory = -1;
 
 //wrong ans
 let correctCounter = id("correct_ans_counter");
-let wrongCounter = id("wrong_ans_counter");
 //correct ans
+let wrongCounter = id("wrong_ans_counter");
+
+//profile stats
+let correctCountElement = id("profilecorrect_counter");
+let wrongCountElement = id("profilewrong_counter");
+let quizCountElement = id("profilequizz_done");
 
 
 // initialize
 setActive("menu");
 updateScore(0);
 speak("");
+let wrongAnswers  = localStorage.getItem('wrongAnswers') || 0;
+let correctAnswers = localStorage.getItem('correctAnswers') || 0;
+let quizzesDone = localStorage.getItem('quizzesDone') || 0;
 
 let index = -1;
 let canClick = true;
@@ -207,8 +215,10 @@ function checkAnswer (ans) {
     let isCorrect = quiz[currentCategory][index].answer == ans;
     if (isCorrect) {
         updateScore(score+1);
+        updateCorrectCount(correctAnswers+1);
         setActive('correct_answer');
     } else {
+        updateWrongCount(wrongAnswers+1);
         setActive('wrong_answer');
     }
 }
@@ -224,6 +234,7 @@ function moveToCategories() {
 }
 
 function showResults() {
+    updateQuizzesCount(quizzesDone+1);
     let goodPercentage = (score / quiz[currentCategory].length) * 100;
     let wrongPercentage = 100 - goodPercentage;
 
@@ -367,4 +378,28 @@ function cancelRecognition() {
         console.log("hahaha")
         voiceImage.style.filter = "invert(0)";
     }
+}
+
+function updateWrongCount(num) {
+    wrongAnswers = num;
+    localStorage.setItem('wrongAnswers', num);
+    wrongCountElement.textContent = num;
+}
+
+function updateCorrectCount(num) {
+    correctAnswers = num;
+    localStorage.setItem('correctAnswers', num);
+    correctCountElement.textContent = num;
+}
+
+function updateQuizzesCount(num) {
+    quizzesDone = num;
+    localStorage.setItem('quizzesDone', num);
+    quizCountElement = num;
+}
+
+function resetStats() {
+    updateCorrectCount(0);
+    updateWrongCount(0);
+    updateQuizzesCount(0);
 }
