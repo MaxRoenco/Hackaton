@@ -138,46 +138,28 @@ let id = (s) => document.getElementById(s);
 
 //menu
 let btn = id("start");
-let menu = id("menu");
 
 //quiz
-let questionSet = id("question-set");
-let options = id("options");
 let question = id("question");
 let yesBtn = id("yes");
 let noBtn = id("no");
 
-//results
-
 //categories
-let categories = id("wrapper_categories");
 let frames = document.querySelectorAll(".category-frame");
 
-//artiom
-let finalscore = id("final__score");
-let wrongans = id("wrong__answer");
-let correctans = id("correct__answer");
-let profileStatistics = id("profile__statistics");
-
 // artiom
-let finalResult = id("final-score");
 let score = 0;
 let currentCategory = -1;
 
 //home
 let homeBtn = id("home_btn");
 homeBtn.addEventListener("click", _ => {
-    hide(finalscore)
-    show(menu);
+    setActive("menu")
 })
 
-// hide(menu);
-hide(questionSet);
-hide(categories);
-hide(finalscore);
-hide(wrongans);
-hide(correctans);
-hide(profileStatistics);
+
+
+setActive("menu");
 
 btn.addEventListener("click", moveToCategories);
 
@@ -185,10 +167,9 @@ let index = -1;
 let canClick = true;
 function nextQuestion() {
     setTimeout(() => canClick = true, 500); // click delay
-    show(questionSet);
+    setActive("quiz");
     index++;
     if (index >= quiz[currentCategory].length) {
-        hide(questionSet);
         showResults();
         index = -1;
         score = 0;
@@ -198,9 +179,9 @@ function nextQuestion() {
     let checkAnswer = ans => {
         if (!canClick) return;
         canClick = false;
+        console.log(index, quiz[currentCategory][index]);
         let isCorrect = quiz[currentCategory][index].answer == ans;
         if (isCorrect) score++;
-        console.log("ghgh", score)
         nextQuestion();
     }
 
@@ -209,20 +190,14 @@ function nextQuestion() {
 }
 
 function moveToCategories() {
-    hide(menu);
-    show(categories);
+    setActive("categories");
     frames.forEach((ele, i) => {
         ele.addEventListener("click", e => {
             let [key, val] = Object.entries(quiz)[i];
             currentCategory = key;
-            startQuiz();
+            nextQuestion();
         })
     })
-}
-
-function startQuiz() {
-    hide(categories);
-    nextQuestion();
 }
 
 function showResults() {
@@ -234,8 +209,8 @@ function showResults() {
     finalResult.textContent = score + "/" + quiz[currentCategory].length;
     finalResult.style.fontFamily = "PoetsenOne";
 
-    let correctColumn = document.querySelector(".diagram__correct");
-    let wrongColumn = document.querySelector(".diagram__wrong");
+    let correctColumn = document.querySelector(".diagram_correct");
+    let wrongColumn = document.querySelector(".diagram_wrong");
 
     correctColumn.style.height = `${goodPercentage}%`;
     wrongColumn.style.height = `${wrongPercentage}%`;
@@ -247,7 +222,7 @@ function showResults() {
     root.style.setProperty('--wrong-height', `${wrongPercentage}%`);
     root.style.setProperty('--correct-content', `"${goodPercentage.toFixed(2)}%"`);
     root.style.setProperty('--wrong-content', `"${wrongPercentage.toFixed(2)}%"`);
-    show(finalscore);
+    setActive("final_score");
 }
 
 function show(ele) {
@@ -261,4 +236,17 @@ function removeAllChildren(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
+}
+
+
+function setActive(tab) {
+    let tabs = document.querySelector("body").children;
+    Array.from(tabs).forEach(element => {
+        console.log(element.id, "==", tab, ":", element.id === tab);
+        if(element.id === tab) {
+            show(element);
+        } else {
+            hide(element);
+        }
+    });
 }
