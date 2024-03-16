@@ -5,7 +5,7 @@
     justify-content: center;
 }
 
-.wrapper__endquiz {
+.wrapper_endquiz {
     width: 1200px;
     max-width: 100%;
     padding: 10px 5px;
@@ -15,14 +15,14 @@
     border: 5px solid black;
 }
 
-.diagram__left,
-.diagram__right {
+.diagram_left,
+.diagram_right {
     position: relative;
     height: 100%;
 
 }
 
-.final__score-headline {
+.final_score-headline {
     font-family: 'Modak';
     font-weight: 400;
     color: white;
@@ -36,13 +36,13 @@
 
 }
 
-.final__score-nr {
+.final_score-nr {
     font-family: 'Modak';
     font-weight: 400;
     color: #A9E628;
 }
 
-.wrapper__diagrams {
+.wrapper_diagrams {
     display: flex;
     justify-content: space-evenly;
     align-items: flex-end;
@@ -50,7 +50,7 @@
     height: 300px;
 }
 
-.diagram__correct {
+.diagram_correct {
     position: absolute;
     bottom: 0;
     width: 202px;
@@ -63,7 +63,7 @@
 
 }
 
-.diagram__correct::after {
+.diagram_correct::after {
     content: attr(data-after);
     color: white;
     position: absolute;
@@ -72,7 +72,7 @@
     transform: translateX(-50%);
 }
 
-.diagram__wrong {
+.diagram_wrong {
     position: absolute;
     bottom: 0;
     width: 202px;
@@ -85,7 +85,7 @@
 
 }
 
-.diagram__wrong::after {
+.diagram_wrong::after {
     content: attr(data-after);
     content: var(--wrong-content);
     color: white;
@@ -112,7 +112,7 @@
 .anchor_descr {
     position: relative;
 } */
-.diagram__descr {
+.diagram_descr {
     /* position: absolute; */
     /* bottom: 0; */
     font-family: 'poetsenone';
@@ -129,7 +129,7 @@
     justify-content: center;
 }
 
-.final__score-home {
+.final_score-home {
     display: inline-block;
     margin-bottom: 70px;
     font-family: 'Modak';

@@ -1,5 +1,5 @@
 /* Profile statistics */
-.wrapper__profilestats {
+.wrapper_profilestats {
     width: 1200px;
     max-width: 100%;
     padding: 10px 5px;
@@ -25,19 +25,19 @@
         2px 2px 0 #000;
 }
 
-.profilestats__correct {
+.profilestats_correct {
     font-family: 'poetsenone';
     font-weight: 400;
     color: #A9E628;
 }
 
-.profilestats__wrong {
+.profilestats_wrong {
     font-family: 'poetsenone';
     font-weight: 400;
     color: #D12E2E;
 }
 
-.profile__stats-home {
+.profile_stats-home {
     display: inline-block;
     margin-bottom: 70px;
     font-family: 'poetsenone';
