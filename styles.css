@@ -36,8 +36,8 @@ body {
 
 /* default => js changes */
 :root {
-    --correct-height: 100%;
-    --wrong-height: 100%;
+    --correct-width: 100%;
+    --wrong-width: 100%;
     --correct-content: '100%';
     --wrong-content: '0%';
     --drop-shadow-effect: drop-shadow(20px 25px 30px rgba(0, 0, 0, 0.7));

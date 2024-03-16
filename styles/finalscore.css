@@ -60,7 +60,7 @@
 .barCorrect {
     background-color: green;
     border-radius: 20px 0 0 20px;
-    height: var(--correct-height);
+    width: var(--correct-width);
 }
 
 .barCorrect::after {
@@ -77,7 +77,7 @@
 .barWrong {
     background-color: red;
     border-radius: 0 20px 20px 0;
-    height: var(--wrong-height);
+    width: var(--wrong-width);
 
 }
 
