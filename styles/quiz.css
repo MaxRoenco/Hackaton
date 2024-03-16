@@ -1,8 +1,9 @@
 /* Quizzez  */
 
 .wrapper_quizzez {
-    width: 1200px;
-    padding: 30px 90px 60px;
+    width: 1000px;
+    height: 500px;
+    padding: 60px 90px 60px 90px;
     margin: 30px auto;
     background-color: #209A45;
     border-radius: 37px;
@@ -94,10 +95,10 @@
     font-size: 64px;
     text-align: center;
     text-transform: uppercase;
-    text-shadow: -2px -2px 0 #000,
-        2px -2px 0 #000,
-        -2px 2px 0 #000,
-        2px 2px 0 #000;
+    text-shadow: -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
 
     text-align: center;
     display: inline-block;
