@@ -79,14 +79,7 @@ function nextQuestion() {
         button.addEventListener("click", (e) => {
             clearQuestion();
             let isCorrect = quiz[index].correctAnswer == i;
-<<<<<<< HEAD
-            if(isCorrect) {
-                score++;
-                
-            }
-=======
             if (isCorrect) score++;
->>>>>>> 1e3e9a0b55c84a0db58afcd6cfd27ec198f6f024
             nextQuestion();
         })
     });
