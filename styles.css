@@ -15,13 +15,8 @@
 }
 
 @font-face {
-<<<<<<< HEAD
     font-family: 'poetsenone';
     src: url('./assets/Poetsenone/PoetsenOne-Regular.ttf') format('truetype');
-=======
-    font-family: 'PoetsenOne';
-    src: url('./assets/PoetsenOne-Regular/PoetsenOne-Regular.ttf') format('truetype');
->>>>>>> 1e3e9a0b55c84a0db58afcd6cfd27ec198f6f024
     font-weight: normal;
     font-style: normal;
 }
