@@ -1,3 +1,6 @@
+setTimeout(() => {
+    body.style.opacity = 1;
+}, 1000);
 let quiz = {};
 fetch('https://65f5f30b41d90c1c5e0a6f6a.mockapi.io/quiz/quiz')
   .then(response => response.json())
@@ -59,6 +62,10 @@ let quizCountElement = id("profilequizz_done");
 
 
 // initialize
+window.onload = function() {
+    let body = document.body;
+    body.style.opacity = "1";
+};
 setActive("menu");
 updateScore(0);
 speak("");
