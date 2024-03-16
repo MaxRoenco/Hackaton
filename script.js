@@ -149,8 +149,12 @@ let soundOn = id("soundImageOn");
 let soundOff = id("soundImageOff");
 let quizContainer = id("quiz");
 let isMuted = false;
+let voiceImage = id("voiceImage");
+let canRecognise = true;
 quizContainer.addEventListener("click", e => {
-    // recognizeSpeech();
+    if(!canRecognise) return;
+    canRecognise = false;
+    recognizeSpeech();
 })
 
 //categories
@@ -187,20 +191,20 @@ function nextQuestion() {
     let questionText = quiz[currentCategory][index].question
     question.textContent = questionText;
     if(!isMuted) speak(questionText);
-    let checkAnswer = ans => {
-        if (!canClick) return;
-        canClick = false;
-        let isCorrect = quiz[currentCategory][index].answer == ans;
-        if (isCorrect) {
-            updateScore(score+1);
-            setActive('correct_answer');
-        } else {
-            setActive('wrong_answer');
-        }
-    }
-
     yesBtn.addEventListener("click", e => checkAnswer(1));
     noBtn.addEventListener("click", e => checkAnswer(0));
+}
+
+function checkAnswer (ans) {
+    if (!canClick) return;
+    canClick = false;
+    let isCorrect = quiz[currentCategory][index].answer == ans;
+    if (isCorrect) {
+        updateScore(score+1);
+        setActive('correct_answer');
+    } else {
+        setActive('wrong_answer');
+    }
 }
 
 function moveToCategories() {
@@ -338,22 +342,33 @@ function recognizeSpeech() {
         
         // Display "Recording now..." message while listening
         // document.getElementById('status').innerText = 'Recording now...';
+        voiceImage.style.filter = "invert(1)";
 
         recognition.onresult = function(event) {
             var transcript = event.results[0][0].transcript;
-            document.getElementById('transcript').innerText = 'Speech Recognition Result: ' + transcript;
+            // alert('Speech Recognition Result: ' + transcript);
+            if(transcript.trim().toLowerCase() === 'yes') {
+                checkAnswer(1);
+            } else if(transcript.trim().toLowerCase() === 'no') {
+                checkAnswer(0);
+            } else {
+                if(!isMuted) speak("Sorry, can you repeat that?");
+            }
         };
 
         recognition.onerror = function(event) {
             console.error('Speech Recognition Error:', event.error);
-            alert("Speech Recognition Error. Please check console for details.");
+            if(!isMuted) speak("Sorry, can you repeat that?");
         };
 
         // Reset the status message when recognition ends
         recognition.onend = function() {
-            
+            voiceImage.style.filter = "invert(0)";
+            setTimeout(() => {
+                canRecognise = true;
+            }, 1000);
         };
     } else {
-        alert("Sorry, your browser doesn't support speech recognition!");
+        if(!isMuted) speak("Sorry, your browser doesn't support speech recognition!");
     }
 }
