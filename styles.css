@@ -38,9 +38,3 @@ body {
     --correct-content: '100%';
     --wrong-content: '0%';
 }
-
-/* button */
-.next_btn {
-    display: flex;
-    justify-content: center;
-}

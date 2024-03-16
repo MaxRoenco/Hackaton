@@ -18,13 +18,13 @@
 <body>
     <!-- MENU -->
     <div id="menu">
-        <div id="home_button">
+        <div id="home_button" onclick="setActive('profile_statistics')">
             <img src="/assets/images/home.png" id="homeimage">
         </div>
         <div class="imagecontainer">
             <img src="/assets/images/Quizer.png" class="image">
         </div>
-        <button id="start" role="button">
+        <button id="start" role="button" onclick="setActive('categories')">
             <p class="start">Start</p>
         </button>
     </div>
@@ -102,7 +102,7 @@
             <h2 class="wrong_ans-headline">Correct answer is YES <br> Score: <span class="wrong_ans-nr"
                     id="wrong_ans_counter">3336</span></h2>
         </div>
-        <div class="next_btn">
+        <div id="wrong_answer_btn">
             <a class="wrong_ans-next">Next</a>
         </div>
     </div>
@@ -115,7 +115,7 @@
             <h2 class="correct_ans-headline">Correct <br> Score: <span class="correct_ans-nr"
                     id="correct_ans_counter">3336</span></h2>
         </div>
-        <div class="next_btn">
+        <div id="correct_answer_btn">
             <a class="correct_ans-next">Next</a>
         </div>
     </div>
@@ -133,7 +133,7 @@
             <h2 class="profilestats-headline">Quizzez done: <span class="profilestats_quizzez"
                     id="profilequizz_done">69</span></h2>
         </div>
-        <div class="next_btn">
+        <div id="profile_statistics_btn" onclick="setActive('menu')">
             <a class="profile_stats-home">Home</a>
         </div>
     </div>

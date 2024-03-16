@@ -54,3 +54,8 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+
+#wrong_answer_btn {
+    display: flex;
+    justify-content: center;
+}
