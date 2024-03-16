@@ -60,7 +60,7 @@
 
     <!-- Quizz -->
     <div id="quiz">
-        <div id="soundContainer">
+        <div id="soundContainer" onclick="toggleSound()">
             <img src="./assets/images/sound_on.png" id="soundImageOn">
             <img src="./assets/images/sound_off.png" id="soundImageOff" style="display:none;">
         </div>
@@ -103,9 +103,8 @@
 
     <!-- WRONG ANSWER BABY -->
     <div id="wrong_answer">
-        <h1 id="wrong_ans"></h1>
         <div class="wrapper_wrongans">
-            <div class="wrong_block"></div>
+            <img src="./assets/images/wrong_ans.png" id="imageWrong">
             <h2 class="wrong_ans-headline">Correct answer is YES <br> Score: <span class="wrong_ans-nr"
                     id="wrong_ans_counter">3336</span></h2>
         </div>
