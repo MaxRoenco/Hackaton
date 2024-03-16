@@ -11,12 +11,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 400px;
+    width: 700px;
     height: 300px;
+    margin-bottom: 40px;
 }
 
 #home_button {
-    height: 60px;
+    height: 70px;
     position: absolute;
     top: 5%;
     right: 4%;
@@ -27,6 +28,12 @@
     height: 100%;
     width: auto;
     margin: 10px, 10px 0, 0;
+    transition: filter 0.3s ease;
+}
+
+#homeimage:hover {
+    cursor: pointer;
+    filter: var(--drop-shadow-effect);
 }
 
 .image {
@@ -43,11 +50,12 @@
     border: 5px solid black;
     transform: rotate(-0.13deg);
     background: #209A45;
+    transition: filter 0.3s ease;
 }
 
 #start:hover {
-    filter: brightness(1.4);
     cursor: pointer;
+    filter: brightness(1.2) drop-shadow(10px 12px 14px rgba(0, 0, 0, 0.5));
 }
 
 #start>.start {
