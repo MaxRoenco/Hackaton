@@ -138,6 +138,10 @@ let id = (s) => document.getElementById(s);
 
 //menu
 let btn = id("start");
+let profileBtn = id("home_button");
+profileBtn.addEventListener("click", _ => {
+    setActive("profile_statistics");
+})
 
 //quiz
 let question = id("question");
