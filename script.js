@@ -150,7 +150,7 @@ let soundOff = id("soundImageOff");
 let quizContainer = id("quiz");
 let isMuted = false;
 quizContainer.addEventListener("click", e => {
-    recognizeSpeech();
+    // recognizeSpeech();
 })
 
 //categories
