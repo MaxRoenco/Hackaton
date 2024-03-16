@@ -167,11 +167,11 @@ let score = 0;
 let currentCategory = -1;
 
 //home
-let homeBtn1 = id("home_btn");
-homeBtn1.addEventListener("click", _ => {
-    console.log("idk");
+let homeBtn = id("home_btn");
+homeBtn.addEventListener("click", _ => {
+    hide(finalResult);
+    show(menu);
 })
-let homeBtn2 = id("next_btn");
 
 // hide(menu);
 hide(questionSet);
