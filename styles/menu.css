@@ -33,3 +33,28 @@
     width: 100%;
     height: auto;
 }
+
+#start {
+    width: 383.96px;
+    height: 93.16px;
+    top: 728px;
+    left: 541.2px;
+    border-radius: 37px;
+    border: 5px solid black;
+    transform: rotate(-0.13deg);
+    background: #209A45;
+}
+
+#start>.start {
+    font-family: 'Modak';
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 96px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: white;
+    text-shadow: -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000;
+}

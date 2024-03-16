@@ -1,0 +1,145 @@
+/* Final score */
+.final_score {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wrapper__endquiz {
+    width: 1200px;
+    max-width: 100%;
+    padding: 10px 5px;
+    margin: 30px auto;
+    background-color: #209A45;
+    border-radius: 37px;
+    border: 5px solid black;
+}
+
+.diagram__left,
+.diagram__right {
+    position: relative;
+    height: 100%;
+
+}
+
+.final__score-headline {
+    font-family: 'Modak';
+    font-weight: 400;
+    color: white;
+    font-size: 64px;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000;
+
+}
+
+.final__score-nr {
+    font-family: 'Modak';
+    font-weight: 400;
+    color: #A9E628;
+}
+
+.wrapper__diagrams {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    padding: 30px;
+    height: 300px;
+}
+
+.diagram__correct {
+    position: absolute;
+    bottom: 0;
+    width: 202px;
+    height: var(--correct-height);
+    background-color: #0F470E;
+    border: 1px solid #A9E628;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 6px 7px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+.diagram__correct::after {
+    content: attr(data-after);
+    color: white;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.diagram__wrong {
+    position: absolute;
+    bottom: 0;
+    width: 202px;
+    height: var(--wrong-height);
+    background-color: #0F470E;
+    border: 1px solid #A9E628;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 6px 7px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+.diagram__wrong::after {
+    content: attr(data-after);
+    content: var(--wrong-content);
+    color: white;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.correct {
+    color: #A9E628;
+    font-family: 'poetsenone';
+    font-weight: 400;
+}
+
+.wrong {
+    color: #D12E2E;
+    font-family: 'poetsenone';
+    font-weight: 400;
+}
+
+
+/* 
+.anchor_descr {
+    position: relative;
+} */
+.diagram__descr {
+    /* position: absolute; */
+    /* bottom: 0; */
+    font-family: 'poetsenone';
+    font-weight: 400;
+    padding: 10px 0 0 10px;
+    color: #fff;
+    font-size: 26px;
+
+}
+
+
+#home_btn {
+    display: flex;
+    justify-content: center;
+}
+
+.final__score-home {
+    display: inline-block;
+    margin-bottom: 70px;
+    font-family: 'Modak';
+    font-weight: 400;
+    color: white;
+    font-size: 34px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 1px 100px;
+    border-radius: 37px;
+    border: 3px solid black;
+    background-color: #209A45;
+}
