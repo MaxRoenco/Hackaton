@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello world</title>
+    <link rel="stylesheet" href="./styles/menu.css">
+    <link rel="stylesheet" href="./styles/categories.css">
+    <link rel="stylesheet" href="./styles/profilestatistics.css">
+    <link rel="stylesheet" href="./styles/quiz.css">
+    <link rel="stylesheet" href="./styles/correctanswer.css">
+    <link rel="stylesheet" href="./styles/wronganswer.css">
+    <link rel="stylesheet" href="./styles/finalscore.css">
     <link rel="stylesheet" href="./styles.css">
 </head>
 
@@ -52,16 +59,17 @@
     </div>
 
     <!-- Quizz -->
-    <div>
-        <div class="wrapper__quizzez" id="question-set">
+    <div id="question-set">
+        <div class="wrapper__quizzez">
             <h2 class="quiz-headline">Quiz:</h2>
             <h1 id="question">Question</h1>
-            <div class="buttons">
-                <button id="no">NO</button>
-                <button id="yes">YES</button>
-            </div>
+        </div>
+        <div class="buttons">
+            <button id="no">NO</button>
+            <button id="yes">YES</button>
         </div>
     </div>
+
 
     <!-- RESULTZ -->
     <div id="results">
