@@ -28,6 +28,7 @@ body {
     /* height: 100vh; */
     background: #0F470E;
     display: flex;
+    overflow: hidden;
 
 }
 
