@@ -1,4 +1,8 @@
 /* Profile statistics */
+.profile_statistics {
+    display: flex;
+    flex-direction: column;
+}
 .wrapper_profilestats {
     width: 1200px;
     max-width: 100%;
