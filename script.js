@@ -151,10 +151,16 @@ let quizContainer = id("wrapper_quizzez");
 let isMuted = false;
 let voiceImage = id("voiceImage");
 let canRecognise = true;
+let recognition;
 quizContainer.addEventListener("click", e => {
-    if(!canRecognise) return;
-    canRecognise = false;
-    recognizeSpeech();
+    console.log("clicked");
+    if(!canRecognise) {
+        console.log("aborting");
+        cancelRecognition();
+    } else {
+        console.log("starting recognition");
+        recognizeSpeech();
+    }
 })
 
 //categories
@@ -243,6 +249,7 @@ function showResults() {
 function show(ele) {
     ele.style.display = "inherit";
 }
+
 function hide(ele) {
     ele.style.display = "none";
 }
@@ -312,8 +319,10 @@ function stopSpeech() {
 }
 
 function recognizeSpeech() {
+    if(!canRecognise) return;
+    canRecognise = false;
     if ('webkitSpeechRecognition' in window) {
-        var recognition = new webkitSpeechRecognition();
+        recognition = new webkitSpeechRecognition();
         recognition.lang = 'en-US';
         recognition.continuous = false;
 
@@ -337,7 +346,7 @@ function recognizeSpeech() {
 
         recognition.onerror = function(event) {
             console.error('Speech Recognition Error:', event.error);
-            if(!isMuted) speak("Sorry, can you repeat that?");
+            if(!isMuted && event.error === 'no-speech') speak("Sorry, can you repeat that?");
         };
 
         // Reset the status message when recognition ends
@@ -355,5 +364,7 @@ function recognizeSpeech() {
 function cancelRecognition() {
     if (recognition) {
         recognition.abort();
+        console.log("hahaha")
+        voiceImage.style.filter = "invert(0)";
     }
 }
