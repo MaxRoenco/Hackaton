@@ -75,10 +75,10 @@ let correctAnswers = +localStorage.getItem('correctAnswers') || 0;
 let quizzesDone = +localStorage.getItem('quizzesDone') || 0;
 let isMuted = +localStorage.getItem('isMuted') || 0;
 
-
 updateCorrectCount(correctAnswers);
 updateWrongCount(wrongAnswers);
 updateQuizzesCount(quizzesDone);
+updateIsMuted(isMuted);
 
 let index = -1;
 let canClick = true;
@@ -202,7 +202,7 @@ function speak(text) {
 
 
 function toggleSound() {
-    isMuted = !isMuted;
+    updateIsMuted(!isMuted);
     if (isMuted) {
         stopSpeech();
         hide(soundOn);
@@ -281,6 +281,11 @@ function updateQuizzesCount(num) {
     quizzesDone = num;
     localStorage.setItem('quizzesDone', num);
     quizCountElement.textContent = num;
+}
+
+function updateIsMuted(bool) {
+    isMuted = bool;
+    localStorage.setItem('isMuted', bool);
 }
 
 function resetStats() {
