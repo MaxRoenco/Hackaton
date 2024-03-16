@@ -70,7 +70,7 @@ window.onload = function () {
     let body = document.body;
     body.style.opacity = "1";
 };
-setActive("final_score");
+setActive("menu");
 updateScore(0);
 speak("");
 let wrongAnswers = +localStorage.getItem('wrongAnswers') || 0;
@@ -141,7 +141,6 @@ function showResults() {
     root.style.setProperty('--wrong-content', `"${wrongPercentage.toFixed(2)}%"`);
     let gp = Math.floor(goodPercentage);
     let wp = Math.floor(wrongPercentage);
-    if()
     barCorrect.textContent = gp >= 10 ? `${gp}%` : '';
     barWrong.textContent = wp >= 10 ? `${wp}%` : '';
     setActive("final_score");
