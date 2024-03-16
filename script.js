@@ -147,7 +147,11 @@ let noBtn = id("no");
 let sound = id("soundContainer");
 let soundOn = id("soundImageOn");
 let soundOff = id("soundImageOff");
+let quizContainer = id("quiz");
 let isMuted = false;
+quizContainer.addEventListener("click", e => {
+    recognizeSpeech();
+})
 
 //categories
 let frames = document.querySelectorAll(".category-frame");
@@ -307,6 +311,7 @@ function recognizeSpeech() {
         alert("Sorry, your browser doesn't support speech recognition!");
     }
 }
+
 function toggleSound() {
     isMuted = !isMuted;
     if(isMuted) {
@@ -318,9 +323,11 @@ function toggleSound() {
         show(soundOn);
     }
 }
+
 function stopSpeech() {
     window.speechSynthesis.cancel();
 }
+
 function recognizeSpeech() {
     if ('webkitSpeechRecognition' in window) {
         var recognition = new webkitSpeechRecognition();
