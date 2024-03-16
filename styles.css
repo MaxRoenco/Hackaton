@@ -29,7 +29,7 @@ body {
     background: #0F470E;
     display: flex;
     overflow: hidden;
-
+    user-select: none;
 }
 
 /* default => js changes */
