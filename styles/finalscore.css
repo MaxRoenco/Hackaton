@@ -46,26 +46,50 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100px;
+    height: 150px;
+    padding: 30px;
 }
 
 .barCorrect,
 .barWrong {
+    position: relative;
     width: 50%;
-    height: 100%;
-    border: 3px solid;
+    border: 2px solid;
 }
 
 .barCorrect {
     background-color: green;
-    border-radius: 0 0 20px 20px;
+    border-radius: 20px 0 0 20px;
+    height: var(--correct-height);
+}
 
+.barCorrect::after {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Modak';
+    font-weight: 400;
+    content: '--correct-content';
+    font-size: 24px;
+    color: white;
 }
 
 .barWrong {
     background-color: red;
-    border-radius: 0 0 20px 20px;
+    border-radius: 0 20px 20px 0;
+    height: var(--wrong-height);
 
+}
+
+.barWrong::after {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Modak';
+    font-weight: 400;
+    content: '--wrong-content';
+    font-size: 24px;
+    color: white;
 }
 
 .correct {

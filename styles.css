@@ -31,7 +31,7 @@ body {
     overflow: hidden;
     user-select: none;
     opacity: 0;
-    transition: opacity 1s;
+    transition: opacity 3s;
 }
 
 /* default => js changes */
