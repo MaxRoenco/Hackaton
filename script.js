@@ -73,7 +73,7 @@ speak("");
 let wrongAnswers = +localStorage.getItem('wrongAnswers') || 0;
 let correctAnswers = +localStorage.getItem('correctAnswers') || 0;
 let quizzesDone = +localStorage.getItem('quizzesDone') || 0;
-let isMuted = +localStorage.getItem('isMuted') || 0;
+let isMuted = localStorage.getItem('isMuted') === 'true' || 0;
 
 updateCorrectCount(correctAnswers);
 updateWrongCount(wrongAnswers);
@@ -200,19 +200,6 @@ function speak(text) {
     }
 }
 
-
-function toggleSound() {
-    updateIsMuted(!isMuted);
-    if (isMuted) {
-        stopSpeech();
-        hide(soundOn);
-        show(soundOff);
-    } else {
-        hide(soundOff);
-        show(soundOn);
-    }
-}
-
 function stopSpeech() {
     window.speechSynthesis.cancel();
 }
@@ -283,9 +270,21 @@ function updateQuizzesCount(num) {
     quizCountElement.textContent = num;
 }
 
+function toggleSound() {
+    updateIsMuted(!isMuted);
+}
+
 function updateIsMuted(bool) {
     isMuted = bool;
     localStorage.setItem('isMuted', bool);
+    if (isMuted) {
+        stopSpeech();
+        hide(soundOn);
+        show(soundOff);
+    } else {
+        hide(soundOff);
+        show(soundOn);
+    }
 }
 
 function resetStats() {
