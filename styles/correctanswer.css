@@ -5,15 +5,11 @@
     align-items: center;
 }
 
-.wrapper_correct_updated {
-    width: 80%;
-    /* Adjusted width for responsiveness */
-    max-width: 1000px;
-    /* Set maximum width */
-    padding: 60px 90px;
-    /* Adjusted padding */
-    margin: 30px auto;
-    /* Centering horizontally */
+.wrapper_correct {
+    width: 1000px;
+    height: 450px;
+    padding: 60px 90px 60px 90px;
+    margin: 30px;
     background-color: #209A45;
     border-radius: 37px;
     border: 5px solid black;
@@ -23,7 +19,7 @@
     align-items: center;
 }
 
-.correct_ans-headline-updated {
+.correct_ans-headline {
     font-family: 'Modak';
     font-weight: 400;
     color: white;
@@ -37,24 +33,22 @@
     margin-top: 20px;
 }
 
-.correct_ans-nr-updated {
+.correct_ans-nr {
     font-family: 'Modak';
     font-weight: 400;
     color: #A9E628;
 }
 
-.correct_ans-next-updated {
+.correct_ans-next {
     display: inline-block;
-    margin-top: 20px;
-    /* Adjusted margin */
+    margin-top: 10px;
     font-family: 'Modak';
     font-weight: 400;
     color: white;
     font-size: 24px;
     text-align: center;
     text-transform: uppercase;
-    padding: 10px 20px;
-    /* Adjusted padding */
+    padding: 20px 40px;
     border-radius: 37px;
     border: 3px solid black;
     background-color: #209A45;
@@ -62,19 +56,16 @@
     box-shadow: 16px 15px 23px -10px rgba(0, 0, 0, 0.75);
 }
 
-.correct_ans-next-updated:hover {
+.correct_ans-next:hover {
     filter: brightness(1.3);
 }
 
-#imageCorrect_updated {
+#imageCorrect {
     width: 250px;
-    /* Adjusted image width */
     height: auto;
     margin-bottom: 20px;
-    /* Adjusted margin */
 }
 
-#correct_answer_btn_updated {
-    margin-top: 20px;
-    /* Adjusted margin */
+#correct_answer_btn {
+    margin-top: 10px;
 }

@@ -108,13 +108,13 @@
 }
 
 
-/* 
 .anchor_descr {
     position: relative;
-} */
+}
+
 .diagram_descr {
-    /* position: absolute; */
-    /* bottom: 0; */
+    position: absolute;
+    bottom: 0;
     font-family: 'poetsenone';
     font-weight: 400;
     padding: 10px 0 0 10px;
