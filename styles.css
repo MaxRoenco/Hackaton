@@ -30,6 +30,8 @@ body {
     display: flex;
     overflow: hidden;
     user-select: none;
+    opacity: 0;
+    transition: opacity 1s;
 }
 
 /* default => js changes */
