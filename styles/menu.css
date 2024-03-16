@@ -15,7 +15,7 @@
     height: 300px;
 }
 
-.home {
+#home_button {
     height: 60px;
     position: absolute;
     top: 5%;
@@ -23,7 +23,7 @@
 
 }
 
-.home>#homeimage {
+#home_button>#homeimage {
     height: 100%;
     width: auto;
     margin: 10px, 10px 0, 0;
