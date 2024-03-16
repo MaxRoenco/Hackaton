@@ -302,7 +302,8 @@ function playSound(path) {
 
 function activateFlag(event) {
     let flags = langFlags.children;
-    flags.forEach(ele => {
+
+    Array.from(flags).forEach(ele => {
         ele.classList = [];
     })
     event.target.classList.add("languageSelected");
