@@ -138,8 +138,6 @@ let id = (s) => document.getElementById(s);
 
 //menu
 let btn = id("start");
-let profileBtn = id("home_button");
-profileBtn.addEventListener("click", _ => setActive("profile_statistics"));
 btn.addEventListener("click", moveToCategories);
 
 //quiz
@@ -155,10 +153,6 @@ let finalResult = id("final-score");
 let score = 0;
 let currentCategory = -1;
 
-//home
-let homeBtn = id("home_btn");
-homeBtn.addEventListener("click", _ => setActive("menu"))
-
 
 
 setActive("menu");
@@ -166,7 +160,7 @@ setActive("menu");
 let index = -1;
 let canClick = true;
 function nextQuestion() {
-    setTimeout(() => canClick = true, 500); // click delay
+    setTimeout(() => canClick = true, 100); // click delay
     setActive("quiz");
     index++;
     if (index >= quiz[currentCategory].length) {
@@ -189,7 +183,6 @@ function nextQuestion() {
 }
 
 function moveToCategories() {
-    setActive("categories");
     frames.forEach((ele, i) => {
         ele.addEventListener("click", e => {
             let [key, val] = Object.entries(quiz)[i];
