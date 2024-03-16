@@ -266,5 +266,6 @@ function speak(s) {
   
     // Filter English voices
     var voices = window.speechSynthesis.getVoices().filter(voice => voice.lang.startsWith('en'));
+    message.voice = voices[0];
     window.speechSynthesis.speak(message);
   }
