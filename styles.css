@@ -508,7 +508,7 @@ body {
 }
 
 /* button */
-#next_btn {
+.next_btn {
     display: flex;
     justify-content: center;
 }

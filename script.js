@@ -187,7 +187,7 @@ btn.addEventListener("click", moveToCategories);
 let index = -1;
 let canClick = true;
 function nextQuestion() {
-    setTimeout(()=>canClick=true, 500); // click delay
+    setTimeout(() => canClick = true, 500); // click delay
     show(questionSet);
     index++;
     if (index >= quiz[currentCategory].length) {
@@ -197,10 +197,10 @@ function nextQuestion() {
     }
     question.textContent = quiz[currentCategory][index].question;
     let checkAnswer = ans => {
-        if(!canClick) return;
+        if (!canClick) return;
         canClick = false;
         let isCorrect = quiz[currentCategory][index].answer == ans;
-        if(isCorrect) score++;
+        if (isCorrect) score++;
         console.log("ghgh", score)
         nextQuestion();
     }
