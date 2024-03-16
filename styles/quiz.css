@@ -2,9 +2,9 @@
 
 .wrapper_quizzez {
     width: 1000px;
-    height: 500px;
+    height: 450px;
     padding: 60px 90px 60px 90px;
-    margin: 30px auto;
+    margin: 30px;
     background-color: #209A45;
     border-radius: 37px;
     border: 5px solid black;
@@ -26,6 +26,34 @@
         2px 2px 0 #000;
 }
 
+#voiceContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#voiceImage {
+    width: 100px;
+    height: auto;
+}
+
+#soundContainer {
+    width: 200px;
+    position: absolute;
+    top: 20px;
+    right: -80px;
+}
+
+#soundImageOn {
+    width: 90px;
+}
+
+#soundImageOff {
+    width: 105px;
+}
+
 #question {
     font-family: 'poetsenone';
     font-weight: 400;
@@ -44,7 +72,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* width: 100%; */
     height: 100vh;
 }
 
@@ -69,8 +96,8 @@
 
     text-align: center;
     display: inline-block;
-    margin-bottom: 70px;
-    padding: 40px 100px;
+    margin-bottom: 0px;
+    padding: 30px 100px;
     border-radius: 37px;
     border: 3px solid black;
     background-color: #209A45;
