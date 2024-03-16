@@ -264,8 +264,16 @@ function speak(s) {
     message.rate = 1; // 0.1 to 10
     message.pitch = 1; // 0 to 2
   
-    var voices = window.speechSynthesis.getVoices();
-    message.voice = voices[0];
+    // Filter English voices
+    var voices = window.speechSynthesis.getVoices().filter(voice => voice.lang.startsWith('en'));
+    
+    if (voices.length > 0) {
+      // Select an English voice
+      message.voice = voices[0];
+    } else {
+      console.error("No English voices available.");
+      return;
+    }
   
     window.speechSynthesis.speak(message);
   }
