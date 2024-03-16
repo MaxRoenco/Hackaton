@@ -48,6 +48,8 @@ let correctCountElement = id("profilecorrect_counter");
 let wrongCountElement = id("profilewrong_counter");
 let quizCountElement = id("profilequizz_done");
 
+//langs
+let langFlags = id("lang_flags");
 
 // initialize
 let quiz = {};
@@ -296,4 +298,12 @@ function resetStats() {
 function playSound(path) {
     var audio = new Audio(path);
     audio.play();
+}
+
+function activateFlag(event) {
+    let flags = langFlags.children;
+    flags.forEach(ele => {
+        ele.classList = [];
+    })
+    event.target.classList.add("languageSelected");
 }
