@@ -175,7 +175,9 @@ function nextQuestion() {
         updateScore(0);
         return;
     }
-    question.textContent = quiz[currentCategory][index].question;
+    let questionText = quiz[currentCategory][index].question
+    question.textContent = questionText;
+    speak(questionText);
     let checkAnswer = ans => {
         if (!canClick) return;
         canClick = false;
@@ -254,3 +256,16 @@ function setActive(tab) {
         }
     });
 }
+
+function speak(s) {
+    var message = new SpeechSynthesisUtterance();
+    message.text = s;
+    message.volume = 1; // 0 to 1
+    message.rate = 1; // 0.1 to 10
+    message.pitch = 1; // 0 to 2
+  
+    var voices = window.speechSynthesis.getVoices();
+    message.voice = voices[0];
+  
+    window.speechSynthesis.speak(message);
+  }
