@@ -294,30 +294,6 @@ function speak(text) {
     }
 }
 
-function recognizeSpeech() {
-    if (recognition) {
-        recognition.abort();
-    }
-    if ('webkitSpeechRecognition' in window) {
-        var recognition = new webkitSpeechRecognition();
-        recognition.lang = 'en-US';
-        recognition.continuous = false;
-
-        recognition.start();
-
-        recognition.onresult = function(event) {
-            var transcript = event.results[0][0].transcript;
-            return transcript;
-        };
-
-        recognition.onerror = function(event) {
-            console.error('Speech Recognition Error:', event.error);
-            alert("Speech Recognition Error. Please check console for details.");
-        };
-    } else {
-        alert("Sorry, your browser doesn't support speech recognition!");
-    }
-}
 
 function toggleSound() {
     isMuted = !isMuted;
