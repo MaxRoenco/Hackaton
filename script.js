@@ -1,14 +1,17 @@
+setTimeout(() => {
+    body.style.opacity = 1;
+}, 1000);
 let quiz = {};
 fetch('https://65f5f30b41d90c1c5e0a6f6a.mockapi.io/quiz/quiz')
-  .then(response => response.json())
-  .then(data => {
-    // Assuming the response data has been assigned to the variable "quiz"
-    quiz = data[0];
-    // Now you can work with the "quiz" variable as needed
-  })
-  .catch(error => {
-    console.error('Error fetching data:', error);
-  });   
+    .then(response => response.json())
+    .then(data => {
+        // Assuming the response data has been assigned to the variable "quiz"
+        quiz = data[0];
+        // Now you can work with the "quiz" variable as needed
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
 
 let id = (s) => document.getElementById(s);
 
@@ -25,7 +28,7 @@ let voiceImage = id("voiceImage");
 let canRecognise = true;
 let recognition;
 quizContainer.addEventListener("click", e => {
-    if(!canRecognise) {
+    if (!canRecognise) {
         cancelRecognition();
     } else {
         recognizeSpeech();
@@ -59,14 +62,14 @@ let quizCountElement = id("profilequizz_done");
 
 
 // initialize
-window.onload = function() {
+window.onload = function () {
     let body = document.body;
     body.style.opacity = "1";
 };
-setActive("menu");
+setActive("final_score");
 updateScore(0);
 speak("");
-let wrongAnswers  = +localStorage.getItem('wrongAnswers') || 0;
+let wrongAnswers = +localStorage.getItem('wrongAnswers') || 0;
 let correctAnswers = +localStorage.getItem('correctAnswers') || 0;
 let quizzesDone = +localStorage.getItem('quizzesDone') || 0;
 
@@ -88,30 +91,30 @@ function nextQuestion() {
     }
     let questionText = quiz[currentCategory][index].question
     question.textContent = questionText;
-    if(!isMuted) speak(questionText);
+    if (!isMuted) speak(questionText);
     yesBtn.addEventListener("click", e => checkAnswer(1));
     noBtn.addEventListener("click", e => checkAnswer(0));
 }
 
-function checkAnswer (ans) {
+function checkAnswer(ans) {
     if (!canClick) return;
     stopSpeech();
     canClick = false;
     let isCorrect = quiz[currentCategory][index].answer == ans;
     if (isCorrect) {
-        updateScore(score+1);
-        updateCorrectCount(correctAnswers+1);
+        updateScore(score + 1);
+        updateCorrectCount(correctAnswers + 1);
         setActive('correct_answer');
         playSound("./assets/audio/correct.mp3");
     } else {
-        updateWrongCount(wrongAnswers+1);
+        updateWrongCount(wrongAnswers + 1);
         setActive('wrong_answer');
         playSound("./assets/audio/wrong.mp3");
     }
 }
 
 function showResults() {
-    updateQuizzesCount(quizzesDone+1);
+    updateQuizzesCount(quizzesDone + 1);
     playSound("./assets/audio/results.mp3");
     let goodPercentage = (score / quiz[currentCategory].length) * 100;
     let wrongPercentage = 100 - goodPercentage;
@@ -122,14 +125,14 @@ function showResults() {
     let correctColumn = document.querySelector(".barCorrect");
     let wrongColumn = document.querySelector(".barWrong");
 
-    correctColumn.style.height = `${goodPercentage}%`;
-    wrongColumn.style.height = `${wrongPercentage}%`;
+    correctColumn.style.width = `${goodPercentage}%`;
+    wrongColumn.style.width = `${wrongPercentage}%`;
     correctColumn.setAttribute('data-after', `${goodPercentage.toFixed(2)}%`);
     wrongColumn.setAttribute('data-after', `${wrongPercentage.toFixed(2)}%`);
 
     let root = document.documentElement;
-    root.style.setProperty('--correct-height', `${goodPercentage}%`);
-    root.style.setProperty('--wrong-height', `${wrongPercentage}%`);
+    root.style.setProperty('--correct-width', `${goodPercentage}%`);
+    root.style.setProperty('--wrong-width', `${wrongPercentage}%`);
     root.style.setProperty('--correct-content', `"${goodPercentage.toFixed(2)}%"`);
     root.style.setProperty('--wrong-content', `"${wrongPercentage.toFixed(2)}%"`);
     setActive("final_score");
@@ -158,7 +161,7 @@ function updateScore(num) {
 function setActive(tab) {
     let tabs = document.querySelector("body").children;
     Array.from(tabs).forEach(element => {
-        if(element.id === tab) {
+        if (element.id === tab) {
             show(element);
         } else {
             hide(element);
@@ -171,18 +174,18 @@ function speak(text) {
     if ('speechSynthesis' in window) {
         // Create a new instance of SpeechSynthesisUtterance
         var msg = new SpeechSynthesisUtterance();
-        
+
         // Set the text to be spoken
         msg.text = text;
-        
+
         // Filter voices to include only English voices
-        var englishVoices = speechSynthesis.getVoices().filter(function(voice) {
+        var englishVoices = speechSynthesis.getVoices().filter(function (voice) {
             return voice.lang.startsWith('en');
         });
-        
+
         // Set the voice to the first English voice found
         msg.voice = englishVoices[0];
-        
+
         // Speak the text
         speechSynthesis.speak(msg);
     } else {
@@ -193,7 +196,7 @@ function speak(text) {
 
 function toggleSound() {
     isMuted = !isMuted;
-    if(isMuted) {
+    if (isMuted) {
         stopSpeech();
         hide(soundOn);
         show(soundOff);
@@ -208,43 +211,43 @@ function stopSpeech() {
 }
 
 function recognizeSpeech() {
-    if(!canRecognise) return;
+    if (!canRecognise) return;
     canRecognise = false;
     if ('webkitSpeechRecognition' in window) {
         recognition = new webkitSpeechRecognition();
         recognition.lang = 'en-US';
         recognition.continuous = false;
-        
+
         recognition.start();
-        
+
         // Display "Recording now..." message while listening
         // document.getElementById('status').innerText = 'Recording now...';
         voiceImage.style.filter = "invert(1)";
 
-        recognition.onresult = function(event) {
+        recognition.onresult = function (event) {
             var transcript = event.results[0][0].transcript;
             // alert('Speech Recognition Result: ' + transcript);
-            if(transcript.trim().toLowerCase() === 'yes') {
+            if (transcript.trim().toLowerCase() === 'yes') {
                 checkAnswer(1);
-            } else if(transcript.trim().toLowerCase() === 'no') {
+            } else if (transcript.trim().toLowerCase() === 'no') {
                 checkAnswer(0);
             } else {
-                if(!isMuted) speak("Sorry, can you repeat that?");
+                if (!isMuted) speak("Sorry, can you repeat that?");
             }
         };
-        recognition.onerror = function(event) {
+        recognition.onerror = function (event) {
             console.error('Speech Recognition Error:', event.error);
-            if(!isMuted && event.error === 'no-speech') speak("Sorry, can you repeat that?");
+            if (!isMuted && event.error === 'no-speech') speak("Sorry, can you repeat that?");
         };
         // Reset the status message when recognition ends
-        recognition.onend = function() {
+        recognition.onend = function () {
             voiceImage.style.filter = "invert(0)";
             setTimeout(() => {
                 canRecognise = true;
             }, 100);
         };
     } else {
-        if(!isMuted) speak("Sorry, your browser doesn't support speech recognition!");
+        if (!isMuted) speak("Sorry, your browser doesn't support speech recognition!");
     }
 }
 
@@ -280,6 +283,6 @@ function resetStats() {
 }
 
 function playSound(path) {
-  var audio = new Audio(path);
-  audio.play();
+    var audio = new Audio(path);
+    audio.play();
 }
