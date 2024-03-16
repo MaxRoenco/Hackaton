@@ -147,11 +147,12 @@ let noBtn = id("no");
 let sound = id("soundContainer");
 let soundOn = id("soundImageOn");
 let soundOff = id("soundImageOff");
-let quizContainer = id("quiz");
+let quizContainer = id("wrapper_quizzez");
 let isMuted = false;
 let voiceImage = id("voiceImage");
 let canRecognise = true;
 quizContainer.addEventListener("click", e => {
+    console.log("clicked")
     if(!canRecognise) return;
     canRecognise = false;
     recognizeSpeech();
@@ -295,6 +296,9 @@ function speak(text) {
 }
 
 function recognizeSpeech() {
+    if (recognition) {
+        recognition.abort();
+    }
     if ('webkitSpeechRecognition' in window) {
         var recognition = new webkitSpeechRecognition();
         recognition.lang = 'en-US';
@@ -366,9 +370,15 @@ function recognizeSpeech() {
             voiceImage.style.filter = "invert(0)";
             setTimeout(() => {
                 canRecognise = true;
-            }, 1000);
+            }, 100);
         };
     } else {
         if(!isMuted) speak("Sorry, your browser doesn't support speech recognition!");
+    }
+}
+
+function cancelRecognition() {
+    if (recognition) {
+        recognition.abort();
     }
 }
