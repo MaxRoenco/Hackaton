@@ -63,6 +63,9 @@
         <div class="wrapper_quizzez">
             <h2 class="quiz-headline">Quiz:</h2>
             <h1 id="question">Question</h1>
+            <div class="voiceContainer">
+                <img src="./assets/images/voice1.png" id="voiceImage">
+            </div>
         </div>
         <div class="buttons">
             <button id="no">NO</button>
@@ -89,7 +92,7 @@
                 </div>
             </div>
         </div>
-        <div id="home_btn">
+        <div id="home_btn" onclick="setActive('menu')">
             <a class="final_score-home">Home</a>
         </div>
     </div>
@@ -102,12 +105,12 @@
             <h2 class="wrong_ans-headline">Correct answer is YES <br> Score: <span class="wrong_ans-nr"
                     id="wrong_ans_counter">3336</span></h2>
         </div>
-        <div id="wrong_answer_btn">
+        <div id="wrong_answer_btn" onclick="nextQuestion()">
             <a class="wrong_ans-next">Next</a>
         </div>
     </div>
 
-    <!-- WRONG ANSWER BABY -->
+    <!-- CORRECT ANSWER BABY -->
     <div class="correct_answer" id="correct_answer">
         <h1 id="correct_ans"></h1>
         <div class="wrapper_correctans">
@@ -115,7 +118,7 @@
             <h2 class="correct_ans-headline">Correct <br> Score: <span class="correct_ans-nr"
                     id="correct_ans_counter">3336</span></h2>
         </div>
-        <div id="correct_answer_btn">
+        <div id="correct_answer_btn" onclick="nextQuestion()">
             <a class="correct_ans-next">Next</a>
         </div>
     </div>
