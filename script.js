@@ -203,7 +203,6 @@ function showResults() {
     let goodPercentage = (score / quiz[currentCategory].length) * 100;
     let wrongPercentage = 100 - goodPercentage;
 
-
     finalResult.textContent = score + "/" + quiz[currentCategory].length;
     finalResult.style.fontFamily = "PoetsenOne";
 
