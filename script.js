@@ -1,3 +1,4 @@
+
 let id = (s) => document.getElementById(s);
 
 //quiz
@@ -52,15 +53,15 @@ let quizCountElement = id("profilequizz_done");
 let langFlags = id("lang_flags");
 
 // initialize
-let language = 'en';
 let dataSet = {};
 let quiz = {};
+let language = localStorage.getItem('language') || 'en';
+updateLanguage(language);
 fetch('https://65f5f30b41d90c1c5e0a6f6a.mockapi.io/quiz/quizes')
 .then(response => response.json())
 .then(data => {
     dataSet = data[0];
     quiz = dataSet[language];
-    console.log(quiz);
 })
 .catch(error => {
     console.error('Error fetching data:', error);
@@ -77,7 +78,7 @@ speak("");
 let wrongAnswers = +localStorage.getItem('wrongAnswers') || 0;
 let correctAnswers = +localStorage.getItem('correctAnswers') || 0;
 let quizzesDone = +localStorage.getItem('quizzesDone') || 0;
-let isMuted = localStorage.getItem('isMuted') === 'true' || 0;
+let isMuted = localStorage.getItem('isMuted') === 'true' || false;
 
 updateCorrectCount(correctAnswers);
 updateWrongCount(wrongAnswers);
@@ -313,5 +314,13 @@ function activateFlag(event) {
     language = event.target.dataset.lang;
 }
 function updateLanguage(lang) {
+    quiz = dataSet[lang];
     language = lang;
+    localStorage.setItem('language', lang);
+    Array.from(langFlags.children).forEach(ele => {
+        ele.classList = [];
+        if(ele.dataset.lang === lang) {
+            ele.classList.add("languageSelected");
+        }
+    })
 }
