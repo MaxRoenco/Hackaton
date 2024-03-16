@@ -139,9 +139,8 @@ let id = (s) => document.getElementById(s);
 //menu
 let btn = id("start");
 let profileBtn = id("home_button");
-profileBtn.addEventListener("click", _ => {
-    setActive("profile_statistics");
-})
+profileBtn.addEventListener("click", _ => setActive("profile_statistics"));
+btn.addEventListener("click", moveToCategories);
 
 //quiz
 let question = id("question");
@@ -158,14 +157,11 @@ let currentCategory = -1;
 
 //home
 let homeBtn = id("home_btn");
-homeBtn.addEventListener("click", _ => {
-    setActive("menu")
-})
+homeBtn.addEventListener("click", _ => setActive("menu"))
 
 
 
 setActive("menu");
-btn.addEventListener("click", moveToCategories);
 
 let index = -1;
 let canClick = true;
