@@ -1,6 +1,3 @@
-setTimeout(() => {
-    body.style.opacity = 1;
-}, 1000);
 let quiz = {};
 fetch('https://65f5f30b41d90c1c5e0a6f6a.mockapi.io/quiz/quiz')
     .then(response => response.json())
@@ -35,6 +32,10 @@ quizContainer.addEventListener("click", e => {
     }
 })
 
+//results
+let barWrong = id("barWrong");
+let barCorrect = id("barCorrect");
+
 //categories
 let frames = document.querySelectorAll(".category-frame");
 frames.forEach((ele, i) => {
@@ -66,7 +67,7 @@ window.onload = function () {
     let body = document.body;
     body.style.opacity = "1";
 };
-setActive("final_score");
+setActive("menu");
 updateScore(0);
 speak("");
 let wrongAnswers = +localStorage.getItem('wrongAnswers') || 0;
@@ -135,6 +136,10 @@ function showResults() {
     root.style.setProperty('--wrong-width', `${wrongPercentage}%`);
     root.style.setProperty('--correct-content', `"${goodPercentage.toFixed(2)}%"`);
     root.style.setProperty('--wrong-content', `"${wrongPercentage.toFixed(2)}%"`);
+    let gp = Math.floor(goodPercentage);
+    let wp = Math.floor(wrongPercentage);
+    barCorrect.textContent = gp >= 10 ? `${gp}%` : '';
+    barWrong.textContent = wp >= 10 ? `${wp}%` : '';
     setActive("final_score");
 }
 
