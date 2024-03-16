@@ -52,7 +52,9 @@ let quizCountElement = id("profilequizz_done");
 let langFlags = id("lang_flags");
 
 // initialize
-let language = 'en';
+let language = localStorage.getItem('language') || 'en';
+console.log(language);
+updateLanguage(language);
 let dataSet = {};
 let quiz = {};
 fetch('https://65f5f30b41d90c1c5e0a6f6a.mockapi.io/quiz/quizes')
@@ -77,7 +79,7 @@ speak("");
 let wrongAnswers = +localStorage.getItem('wrongAnswers') || 0;
 let correctAnswers = +localStorage.getItem('correctAnswers') || 0;
 let quizzesDone = +localStorage.getItem('quizzesDone') || 0;
-let isMuted = localStorage.getItem('isMuted') === 'true' || 0;
+let isMuted = localStorage.getItem('isMuted') === 'true' || false;
 
 updateCorrectCount(correctAnswers);
 updateWrongCount(wrongAnswers);
@@ -314,4 +316,11 @@ function activateFlag(event) {
 }
 function updateLanguage(lang) {
     language = lang;
+    localStorage.setItem('language', lang);
+    Array.from(langFlags.children).forEach(ele => {
+        ele.classList = [];
+        if(ele.dataset.lang === lang) {
+            ele.classList.add("languageSelected");
+        }
+    })
 }
