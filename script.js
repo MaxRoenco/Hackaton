@@ -174,8 +174,12 @@ function nextQuestion() {
         if (!canClick) return;
         canClick = false;
         let isCorrect = quiz[currentCategory][index].answer == ans;
-        if (isCorrect) score++;
-        nextQuestion();
+        if (isCorrect) {
+            score++;
+            setActive('correct_answer');
+        } else {
+            setActive('wrong_answer');
+        }
     }
 
     yesBtn.addEventListener("click", e => checkAnswer(1));
