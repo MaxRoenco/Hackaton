@@ -182,7 +182,7 @@ function nextQuestion() {
     }
     let questionText = quiz[currentCategory][index].question
     question.textContent = questionText;
-    speak(questionText);
+    if(!isMuted) speak(questionText);
     let checkAnswer = ans => {
         if (!canClick) return;
         canClick = false;
@@ -310,6 +310,7 @@ function recognizeSpeech() {
 function toggleSound() {
     isMuted = !isMuted;
     if(isMuted) {
+        stopSpeech();
         hide(soundOn);
         show(soundOff);
     } else {
@@ -317,4 +318,6 @@ function toggleSound() {
         show(soundOn);
     }
 }
-  
+function stopSpeech() {
+    window.speechSynthesis.cancel();
+}
