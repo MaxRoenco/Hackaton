@@ -144,6 +144,8 @@ let menu = id("menu");
 let questionSet = id("question-set");
 let options = id("options");
 let question = id("question");
+let yesBtn = id("yes");
+let noBtn = id("no");
 
 //results
 let results = id("results");
@@ -162,6 +164,14 @@ let profileStatistics = id("profile__statistics");
 // artiom
 let finalResult = id("final-score");
 let score = 0;
+let currentCategory = -1;
+
+//home
+let homeBtn1 = id("home_btn");
+homeBtn1.addEventListener("click", _ => {
+    console.log("idk");
+})
+let homeBtn2 = id("next_btn");
 
 // hide(menu);
 hide(questionSet);
@@ -175,44 +185,28 @@ hide(profileStatistics);
 btn.addEventListener("click", moveToCategories);
 
 let index = -1;
-function nextQuestion(c) {
+let canClick = true;
+function nextQuestion() {
+    setTimeout(()=>canClick=true, 500); // click delay
+    show(questionSet);
     index++;
-    if (index >= quiz[c].length) {
+    if (index >= quiz[currentCategory].length) {
         hide(questionSet);
         showResults();
         return;
     }
-    question.textContent = quiz[c][index].question;
-    let yesBtn = document.createElement("button");
-    let noBtn = document.createElement("button");
-    yesBtn.style.style.backgroundColor = "#45D12E";
-    noBtn.style.backgroundColor = "#D12E2E";
+    question.textContent = quiz[currentCategory][index].question;
+    let checkAnswer = ans => {
+        if(!canClick) return;
+        canClick = false;
+        let isCorrect = quiz[currentCategory][index].answer == ans;
+        if(isCorrect) score++;
+        console.log("ghgh", score)
+        nextQuestion();
+    }
 
-
-    ops.forEach((element, i) => {
-        let button = document.createElement("button");
-        button.classList.add("quizz_btn");
-
-        if (element === "Yes") {
-            button.style.backgroundColor = "#45D12E";
-        } else if (element === "No") {
-            button.style.backgroundColor = "#D12E2E";
-        }
-
-        button.textContent = element;
-        options.append(button);
-        button.addEventListener("click", (e) => {
-            clearQuestion();
-            let isCorrect = quiz[c][index].correctAnswer == i;
-            if (isCorrect) score++;
-            nextQuestion();
-        })
-    });
-}
-
-function clearQuestion() {
-    question.textContent = '';
-    removeAllChildren(options);
+    yesBtn.addEventListener("click", e => checkAnswer(1));
+    noBtn.addEventListener("click", e => checkAnswer(0));
 }
 
 function moveToCategories() {
@@ -221,22 +215,24 @@ function moveToCategories() {
     frames.forEach((ele, i) => {
         ele.addEventListener("click", e => {
             let [key, val] = Object.entries(quiz)[i];
-            startQuiz(key);
+            currentCategory = key;
+            startQuiz();
         })
     })
 }
 
-function startQuiz(cat) {
+function startQuiz() {
     hide(categories);
-    nextQuestion(cat);
+    nextQuestion();
 }
 
 function showResults() {
-    let goodPercentage = (score / quiz.length) * 100;
+    console.log(score);
+    let goodPercentage = (score / quiz[currentCategory].length) * 100;
     let wrongPercentage = 100 - goodPercentage;
 
 
-    finalResult.textContent = score + "/" + quiz.length;
+    finalResult.textContent = score + "/" + quiz[currentCategory].length;
     finalResult.style.fontFamily = "PoetsenOne";
 
     let correctColumn = document.querySelector(".diagram__correct");
