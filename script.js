@@ -1,15 +1,3 @@
-let quiz = {};
-fetch('https://65f5f30b41d90c1c5e0a6f6a.mockapi.io/quiz/quiz')
-    .then(response => response.json())
-    .then(data => {
-        // Assuming the response data has been assigned to the variable "quiz"
-        quiz = data[0];
-        // Now you can work with the "quiz" variable as needed
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error);
-    });
-
 let id = (s) => document.getElementById(s);
 
 //quiz
@@ -20,7 +8,6 @@ let sound = id("soundContainer");
 let soundOn = id("soundImageOn");
 let soundOff = id("soundImageOff");
 let quizContainer = id("wrapper_quizzez");
-let isMuted = false;
 let voiceImage = id("voiceImage");
 let canRecognise = true;
 let recognition;
@@ -63,6 +50,17 @@ let quizCountElement = id("profilequizz_done");
 
 
 // initialize
+let quiz = {};
+fetch('https://65f5f30b41d90c1c5e0a6f6a.mockapi.io/quiz/quizes')
+.then(response => response.json())
+.then(data => {
+    quiz = data[0]['en'];
+    console.log(quiz);
+})
+.catch(error => {
+    console.error('Error fetching data:', error);
+});
+let language = 'en';
 window.onload = function () {
     let body = document.body;
     body.style.opacity = "1";
@@ -70,13 +68,17 @@ window.onload = function () {
 setActive("menu");
 updateScore(0);
 speak("");
+
+// manage local storage variables
 let wrongAnswers = +localStorage.getItem('wrongAnswers') || 0;
 let correctAnswers = +localStorage.getItem('correctAnswers') || 0;
 let quizzesDone = +localStorage.getItem('quizzesDone') || 0;
+let isMuted = +localStorage.getItem('isMuted') || 0;
 
 updateCorrectCount(correctAnswers);
 updateWrongCount(wrongAnswers);
 updateQuizzesCount(quizzesDone);
+updateIsMuted(isMuted);
 
 let index = -1;
 let canClick = true;
@@ -200,7 +202,7 @@ function speak(text) {
 
 
 function toggleSound() {
-    isMuted = !isMuted;
+    updateIsMuted(!isMuted);
     if (isMuted) {
         stopSpeech();
         hide(soundOn);
@@ -279,6 +281,11 @@ function updateQuizzesCount(num) {
     quizzesDone = num;
     localStorage.setItem('quizzesDone', num);
     quizCountElement.textContent = num;
+}
+
+function updateIsMuted(bool) {
+    isMuted = bool;
+    localStorage.setItem('isMuted', bool);
 }
 
 function resetStats() {
