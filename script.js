@@ -1,138 +1,14 @@
-let quiz = {
-    history: [
-        {
-            question: "Did World War II start in 1914?",
-            answer: 0, // No
-        },
-        {
-            question: "Did the French Revolution happen in the 18th century?",
-            answer: 1, // Yes
-        },
-        {
-            question: "Was Napoleon Bonaparte a Russian czar?",
-            answer: 0, // No
-        },
-        {
-            question: "Did the Cold War end in 1991?",
-            answer: 1, // Yes
-        },
-        {
-            question: "Did Christopher Columbus discover America in the 16th century?",
-            answer: 1, // Yes
-        }
-    ],
-    turism: [
-        {
-            question: "Is the Eiffel Tower located in London?",
-            answer: 0, // No
-        },
-        {
-            question: "Is the Great Wall of China visible from space?",
-            answer: 0, // No
-        },
-        {
-            question: "Are kangaroos native to South America?",
-            answer: 0, // No
-        },
-        {
-            question: "Is the Statue of Liberty located in New York City?",
-            answer: 1, // Yes
-        },
-        {
-            question: "Is Machu Picchu located in Brazil?",
-            answer: 0, // No
-        }
-    ],
-    jobs: [
-        {
-            question: "Is a chef's primary responsibility to perform surgeries?",
-            answer: 0, // No
-        },
-        {
-            question: "Is a pilot responsible for driving a train?",
-            answer: 0, // No
-        },
-        {
-            question: "Is a carpenter's job to design websites?",
-            answer: 0, // No
-        },
-        {
-            question: "Do firefighters extinguish fires?",
-            answer: 1, // Yes
-        },
-        {
-            question: "Is a dentist responsible for fixing car engines?",
-            answer: 0, // No
-        }
-    ],
-    food: [
-        {
-            question: "Is sushi a traditional Japanese dish?",
-            answer: 1, // Yes
-        },
-        {
-            question: "Do Italians typically eat tacos for breakfast?",
-            answer: 0, // No
-        },
-        {
-            question: "Are hamburgers originally from India?",
-            answer: 0, // No
-        },
-        {
-            question: "Is tofu a type of meat?",
-            answer: 0, // No
-        },
-        {
-            question: "Are avocados commonly used in salads?",
-            answer: 1, // Yes
-        }
-    ],
-    culture: [
-        {
-            question: "Is Bollywood primarily associated with Indian cinema?",
-            answer: 1, // Yes
-        },
-        {
-            question: "Is the Oktoberfest celebrated in March?",
-            answer: 0, // No
-        },
-        {
-            question: "Is the Mona Lisa a sculpture?",
-            answer: 0, // No
-        },
-        {
-            question: "Is Shakespeare known for his contributions to mathematics?",
-            answer: 0, // No
-        },
-        {
-            question: "Is K-pop a genre of music from South Korea?",
-            answer: 1, // Yes
-        }
-    ],
-    art: [
-        {
-            question: "Is Vincent van Gogh famous for his paintings?",
-            answer: 1, // Yes
-        },
-        {
-            question: "Did Pablo Picasso specialize in architecture?",
-            answer: 0, // No
-        },
-        {
-            question: "Is the Mona Lisa a painting by Leonardo da Vinci?",
-            answer: 1, // Yes
-        },
-        {
-            question: "Did Michelangelo sculpt the Statue of Liberty?",
-            answer: 0, // No
-        },
-        {
-            question: "Is the Starry Night by Claude Monet?",
-            answer: 0, // No
-        }
-    ]
-};
-
+let quiz = {};
+fetch('https://65f5f30b41d90c1c5e0a6f6a.mockapi.io/quiz/quiz')
+  .then(response => response.json())
+  .then(data => {
+    // Assuming the response data has been assigned to the variable "quiz"
+    quiz = data[0];
+    // Now you can work with the "quiz" variable as needed
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });   
 
 let id = (s) => document.getElementById(s);
 
@@ -222,9 +98,11 @@ function checkAnswer (ans) {
         updateScore(score+1);
         updateCorrectCount(correctAnswers+1);
         setActive('correct_answer');
+        playSound("./assets/audio/correct.mp3");
     } else {
         updateWrongCount(wrongAnswers+1);
         setActive('wrong_answer');
+        playSound("./assets/audio/wrong.mp3");
     }
 }
 
@@ -240,6 +118,7 @@ function moveToCategories() {
 
 function showResults() {
     updateQuizzesCount(quizzesDone+1);
+    playSound("./assets/audio/results.mp3");
     let goodPercentage = (score / quiz[currentCategory].length) * 100;
     let wrongPercentage = 100 - goodPercentage;
 
@@ -359,12 +238,10 @@ function recognizeSpeech() {
                 if(!isMuted) speak("Sorry, can you repeat that?");
             }
         };
-
         recognition.onerror = function(event) {
             console.error('Speech Recognition Error:', event.error);
             if(!isMuted && event.error === 'no-speech') speak("Sorry, can you repeat that?");
         };
-
         // Reset the status message when recognition ends
         recognition.onend = function() {
             voiceImage.style.filter = "invert(0)";
@@ -407,4 +284,9 @@ function resetStats() {
     updateCorrectCount(0);
     updateWrongCount(0);
     updateQuizzesCount(0);
+}
+
+function playSound(path) {
+  var audio = new Audio(path);
+  audio.play();
 }
