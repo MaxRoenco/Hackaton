@@ -266,14 +266,5 @@ function speak(s) {
   
     // Filter English voices
     var voices = window.speechSynthesis.getVoices().filter(voice => voice.lang.startsWith('en'));
-    
-    if (voices.length > 0) {
-      // Select an English voice
-      message.voice = voices[0];
-    } else {
-      console.error("No English voices available.");
-      return;
-    }
-  
     window.speechSynthesis.speak(message);
   }
