@@ -12,10 +12,6 @@ fetch('https://65f5f30b41d90c1c5e0a6f6a.mockapi.io/quiz/quiz')
 
 let id = (s) => document.getElementById(s);
 
-//menu
-let btn = id("start");
-btn.addEventListener("click", moveToCategories);
-
 //quiz
 let question = id("question");
 let yesBtn = id("yes");
@@ -29,18 +25,22 @@ let voiceImage = id("voiceImage");
 let canRecognise = true;
 let recognition;
 quizContainer.addEventListener("click", e => {
-    console.log("clicked");
     if(!canRecognise) {
-        console.log("aborting");
         cancelRecognition();
     } else {
-        console.log("starting recognition");
         recognizeSpeech();
     }
 })
 
 //categories
 let frames = document.querySelectorAll(".category-frame");
+frames.forEach((ele, i) => {
+    ele.addEventListener("click", e => {
+        let key = Object.keys(quiz)[i];
+        currentCategory = key;
+        nextQuestion();
+    })
+})
 
 // artiom
 let finalResult = id("final-score");
@@ -77,8 +77,8 @@ function nextQuestion() {
     setActive("quiz");
     index++;
     if (index >= quiz[currentCategory].length) {
-        showResults();
         index = -1;
+        showResults();
         updateScore(0);
         return;
     }
@@ -104,16 +104,6 @@ function checkAnswer (ans) {
         setActive('wrong_answer');
         playSound("./assets/audio/wrong.mp3");
     }
-}
-
-function moveToCategories() {
-    frames.forEach((ele, i) => {
-        ele.addEventListener("click", e => {
-            let [key, val] = Object.entries(quiz)[i];
-            currentCategory = key;
-            nextQuestion();
-        })
-    })
 }
 
 function showResults() {
@@ -257,7 +247,6 @@ function recognizeSpeech() {
 function cancelRecognition() {
     if (recognition) {
         recognition.abort();
-        console.log("hahaha")
         voiceImage.style.filter = "invert(0)";
     }
 }
