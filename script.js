@@ -215,6 +215,7 @@ function nextQuestion() {
 
 function checkAnswer (ans) {
     if (!canClick) return;
+    stopSpeech();
     canClick = false;
     let isCorrect = quiz[currentCategory][index].answer == ans;
     if (isCorrect) {
