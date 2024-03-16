@@ -257,15 +257,26 @@ function setActive(tab) {
     });
 }
 
-function speak(s) {
+function speak() {
     var message = new SpeechSynthesisUtterance();
-    message.text = s;
+    message.text = "Hello, World!";
     message.volume = 1; // 0 to 1
     message.rate = 1; // 0.1 to 10
     message.pitch = 1; // 0 to 2
   
-    // Filter English voices
-    var voices = window.speechSynthesis.getVoices().filter(voice => voice.lang.startsWith('en'));
-    message.voice = voices[0];
-    window.speechSynthesis.speak(message);
+    // Wait for the voices to be loaded
+    window.speechSynthesis.onvoiceschanged = function() {
+      // Filter English voices
+      var voices = window.speechSynthesis.getVoices().filter(voice => voice.lang.startsWith('en'));
+    
+      if (voices.length > 0) {
+        // Select an English voice
+        message.voice = voices[0];
+        window.speechSynthesis.speak(message);
+      } else {
+        console.error("No English voices available.");
+        return;
+      }
+    };
   }
+  
