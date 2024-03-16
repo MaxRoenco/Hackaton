@@ -144,6 +144,10 @@ btn.addEventListener("click", moveToCategories);
 let question = id("question");
 let yesBtn = id("yes");
 let noBtn = id("no");
+let sound = id("soundContainer");
+let soundOn = id("soundImageOn");
+let soundOff = id("soundImageOff");
+let isMuted = false;
 
 //categories
 let frames = document.querySelectorAll(".category-frame");
@@ -244,7 +248,7 @@ function updateScore(num) {
     score = num;
     correctCounter.textContent = score;
     wrongCounter.textContent = score;
-} 
+}
 
 function setActive(tab) {
     let tabs = document.querySelector("body").children;
@@ -280,5 +284,37 @@ function speak(text) {
         console.error("Sorry, your browser doesn't support text-to-speech!");
     }
 }
-  
+
+function recognizeSpeech() {
+    if ('webkitSpeechRecognition' in window) {
+        var recognition = new webkitSpeechRecognition();
+        recognition.lang = 'en-US';
+        recognition.continuous = false;
+
+        recognition.start();
+
+        recognition.onresult = function(event) {
+            var transcript = event.results[0][0].transcript;
+            return transcript;
+        };
+
+        recognition.onerror = function(event) {
+            console.error('Speech Recognition Error:', event.error);
+            alert("Speech Recognition Error. Please check console for details.");
+        };
+    } else {
+        alert("Sorry, your browser doesn't support speech recognition!");
+    }
+}
+
+function toggleSound() {
+    isMuted = !isMuted;
+    if(isMuted) {
+        hide(soundOn);
+        show(soundOff);
+    } else {
+        hide(soundOff);
+        show(soundOn);
+    }
+}
   
