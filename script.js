@@ -21,7 +21,7 @@ let quiz = [
     },
 ]
 
-let id = (s)=>document.getElementById(s);
+let id = (s) => document.getElementById(s);
 
 let btn = id("start");
 let menu = id("menu");
@@ -50,14 +50,14 @@ hide(wrongans);
 hide(correctans);
 hide(profileStatistics);
 
-btn.addEventListener("click", (e)=>{
+btn.addEventListener("click", (e) => {
     startQuiz();
 })
 
 let index = -1;
 function nextQuestion() {
     index++;
-    if(index >= quiz.length) {
+    if (index >= quiz.length) {
         hide(questionSet);
         showResults();
         return;
@@ -76,13 +76,17 @@ function nextQuestion() {
         
         button.textContent = element;
         options.append(button);
-        button.addEventListener("click", (e)=>{
+        button.addEventListener("click", (e) => {
             clearQuestion();
             let isCorrect = quiz[index].correctAnswer == i;
+<<<<<<< HEAD
             if(isCorrect) {
                 score++;
                 
             }
+=======
+            if (isCorrect) score++;
+>>>>>>> 1e3e9a0b55c84a0db58afcd6cfd27ec198f6f024
             nextQuestion();
         })
     });

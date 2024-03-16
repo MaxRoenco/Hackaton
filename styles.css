@@ -15,8 +15,13 @@
 }
 
 @font-face {
+<<<<<<< HEAD
     font-family: 'poetsenone';
     src: url('./assets/Poetsenone/PoetsenOne-Regular.ttf') format('truetype');
+=======
+    font-family: 'PoetsenOne';
+    src: url('./assets/PoetsenOne-Regular/PoetsenOne-Regular.ttf') format('truetype');
+>>>>>>> 1e3e9a0b55c84a0db58afcd6cfd27ec198f6f024
     font-weight: normal;
     font-style: normal;
 }
@@ -67,49 +72,62 @@ body {
     align-items: center;
 }
 
-.category-frame > .label {
+.category-frame>.label {
+    font-family: "PoetsenOne";
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
     background: #FFFFFF;
     border: 5px solid #000000;
+    border-radius: 999999999px;
+    font-size: 2rem;
+    padding: 1px 20px;
 }
 
-.category-frame > img {
+.category-frame>img {
     position: absolute;
 }
+
 #frame1 {
     background: #E7BF34;
 }
 
-#frame1 > img {
-    width: 110%;
+#frame1>img {
+    width: 100%;
     top: -30px;
 }
+
 #frame2 {
     background: #2EBED1;
 }
-#frame2 > img {
+
+#frame2>img {
     width: 90%;
     top: 40px;
 }
+
 #frame3 {
     background: #2E6FD1;
 }
-#frame3 > img {
-    width: 80%;
+
+#frame3>img {
+    width: 70%;
 }
+
 #frame4 {
     background: #45D12E;
 }
-#frame4 > img {
-    width: 110%;
+
+#frame4>img {
+    width: 100%;
     top: -30px;
 }
+
 #frame5 {
     background: #D12E2E;
 }
-#frame5 > img {
-    height: 80%;
+
+#frame5>img {
+    height: 70%;
 }
 
 #frame2 {
@@ -131,8 +149,9 @@ body {
 #frame6 {
     background: #E97838;
 }
-#frame6 > img {
-    width: 80%;
+
+#frame6>img {
+    width: 70%;
 }
 
 #menu {
