@@ -152,7 +152,6 @@ let isMuted = false;
 let voiceImage = id("voiceImage");
 let canRecognise = true;
 quizContainer.addEventListener("click", e => {
-    console.log("clicked")
     if(!canRecognise) return;
     canRecognise = false;
     recognizeSpeech();
