@@ -46,6 +46,7 @@
     height: 100%;
     width: auto;
     margin: 10px, 10px 0, 0;
+    filter: invert(1);
     transition: filter 0.3s ease;
 }
 

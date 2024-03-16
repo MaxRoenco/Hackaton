@@ -29,7 +29,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     width: 900px;
-    height: 550px;
+    height: 600px;
     margin-bottom: 20px;
     padding: 30px 0;
 }
@@ -54,10 +54,11 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 16px 15px 23px -10px rgba(0, 0, 0, 0.75);
 }
 
 .category-frame:hover {
-    filter: brightness(1.2);
+    filter: brightness(1.2) drop-shadow(10px 12px 14px rgba(0, 0, 0, 0.5));
     cursor: pointer;
 }
 

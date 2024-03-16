@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height:100vh;
+    height: 100vh;
 }
 
 .wrapper_wrongans {
@@ -24,14 +24,13 @@
     font-family: 'Modak';
     font-weight: 400;
     color: white;
-    font-size: 34px;
+    font-size: 44px;
     text-align: center;
     text-transform: uppercase;
     text-shadow: -2px -2px 0 #000,
         2px -2px 0 #000,
         -2px 2px 0 #000,
         2px 2px 0 #000;
-    margin-top: 20px;
 }
 
 .wrong_ans-nr {
@@ -50,9 +49,9 @@
     text-align: center;
     text-transform: uppercase;
     text-shadow: -2px -2px 0 #000,
-    2px -2px 0 #000,
-    -2px 2px 0 #000,
-    2px 2px 0 #000;
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000;
     padding: 20px 40px;
     border-radius: 37px;
     border: 3px solid black;
