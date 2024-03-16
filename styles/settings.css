@@ -61,17 +61,45 @@
 #lang_flags>div>img {
     width: 100%;
     height: auto;
+    pointer-events: none;
 }
 
 .languageSelected {
     border-color: #45D12E !important;
-    /* Change border color to indicate selection */
     background-color: #45D12E !important;
-    /* Change background color */
     transform: translateY(-5px) !important;
-    /* Move the box up slightly */
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2) !important;
-    /* Add a more pronounced box shadow */
     transition: transform 0.2s ease, border-color 0.2s ease !important;
-    /* Add transition for smooth animation */
+}
+
+#home_btn_settings {
+    display: flex;
+    justify-content: center;
+
+}
+
+.final_score-home_ {
+    display: inline-block;
+    margin-bottom: 70px;
+    font-family: 'Modak';
+    font-weight: 400;
+    color: white;
+    font-size: 45px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 1px 100px;
+    border-radius: 37px;
+    border: 3px solid black;
+    background-color: #209A45;
+    transition: filter 0.3s ease;
+    text-shadow: -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000;
+    box-shadow: 16px 15px 23px -10px rgba(0, 0, 0, 0.75);
+}
+
+.final_score-home:hover {
+    filter: brightness(1.2) drop-shadow(10px 12px 14px rgba(0, 0, 0, 0.5));
+    cursor: pointer;
 }
