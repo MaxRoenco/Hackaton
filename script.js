@@ -257,26 +257,28 @@ function setActive(tab) {
     });
 }
 
-function speak(s) {
-    var message = new SpeechSynthesisUtterance();
-    message.text = s;
-    message.volume = 1; // 0 to 1
-    message.rate = 1; // 0.1 to 10
-    message.pitch = 1; // 0 to 2
+function speak(text) {
+    // Check if the browser supports speech synthesis
+    if ('speechSynthesis' in window) {
+        // Create a new instance of SpeechSynthesisUtterance
+        var msg = new SpeechSynthesisUtterance();
+        
+        // Set the text to be spoken
+        msg.text = text;
+        
+        // Filter voices to include only English voices
+        var englishVoices = speechSynthesis.getVoices().filter(function(voice) {
+            return voice.lang.startsWith('en');
+        });
+        
+        // Set the voice to the first English voice found
+        msg.voice = englishVoices[0];
+        
+        // Speak the text
+        speechSynthesis.speak(msg);
+    } else {
+        console.error("Sorry, your browser doesn't support text-to-speech!");
+    }
+}
   
-    // Wait for the voices to be loaded
-    window.speechSynthesis.onvoiceschanged = function() {
-      // Filter English voices
-      var voices = window.speechSynthesis.getVoices().filter(voice => voice.lang.startsWith('en'));
-    
-      if (voices.length > 0) {
-        // Select an English voice
-        message.voice = voices[0];
-        window.speechSynthesis.speak(message);
-      } else {
-        console.error("No English voices available.");
-        return;
-      }
-    };
-  }
   
