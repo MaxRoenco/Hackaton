@@ -166,6 +166,7 @@ let wrongCounter = id("wrong_ans_counter");
 
 setActive("menu");
 updateScore(0);
+speak("");
 
 let index = -1;
 let canClick = true;
@@ -306,7 +307,6 @@ function recognizeSpeech() {
         alert("Sorry, your browser doesn't support speech recognition!");
     }
 }
-
 function toggleSound() {
     isMuted = !isMuted;
     if(isMuted) {
