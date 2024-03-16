@@ -35,6 +35,10 @@ quizContainer.addEventListener("click", e => {
     }
 })
 
+//results
+let barWrong = id("barWrong");
+let barCorrect = id("barCorrect");
+
 //categories
 let frames = document.querySelectorAll(".category-frame");
 frames.forEach((ele, i) => {
@@ -135,6 +139,11 @@ function showResults() {
     root.style.setProperty('--wrong-width', `${wrongPercentage}%`);
     root.style.setProperty('--correct-content', `"${goodPercentage.toFixed(2)}%"`);
     root.style.setProperty('--wrong-content', `"${wrongPercentage.toFixed(2)}%"`);
+    let gp = Math.floor(goodPercentage);
+    let wp = Math.floor(wrongPercentage);
+    if()
+    barCorrect.textContent = gp >= 10 ? `${gp}%` : '';
+    barWrong.textContent = wp >= 10 ? `${wp}%` : '';
     setActive("final_score");
 }
 
