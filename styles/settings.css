@@ -1,5 +1,6 @@
 #settings {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -43,11 +44,8 @@
 
 #lang_flags>div {
     width: 120px;
-    /* Set the width of the box */
     padding: 20px;
-    /* Add padding around the box */
     border: 2px solid #209A45;
-    /* Add a border with a color */
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.1);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -75,10 +73,9 @@
 #home_btn_settings {
     display: flex;
     justify-content: center;
-
 }
 
-.final_score-home_ {
+.settings-home {
     display: inline-block;
     margin-bottom: 70px;
     font-family: 'Modak';
@@ -99,7 +96,7 @@
     box-shadow: 16px 15px 23px -10px rgba(0, 0, 0, 0.75);
 }
 
-.final_score-home:hover {
+.settings-home:hover {
     filter: brightness(1.2) drop-shadow(10px 12px 14px rgba(0, 0, 0, 0.5));
     cursor: pointer;
 }
