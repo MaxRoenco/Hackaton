@@ -214,7 +214,7 @@ function recognizeSpeech() {
         recognition = new webkitSpeechRecognition();
         recognition.lang = 'en-US';
         recognition.continuous = false;
-
+        
         recognition.start();
         
         // Display "Recording now..." message while listening
