@@ -52,17 +52,19 @@ let quizCountElement = id("profilequizz_done");
 let langFlags = id("lang_flags");
 
 // initialize
+let language = 'en';
+let dataSet = {};
 let quiz = {};
 fetch('https://65f5f30b41d90c1c5e0a6f6a.mockapi.io/quiz/quizes')
 .then(response => response.json())
 .then(data => {
-    quiz = data[0]['en'];
+    dataSet = data[0];
+    quiz = dataSet[language];
     console.log(quiz);
 })
 .catch(error => {
     console.error('Error fetching data:', error);
 });
-let language = 'en';
 window.onload = function () {
     let body = document.body;
     body.style.opacity = "1";
@@ -307,4 +309,9 @@ function activateFlag(event) {
         ele.classList = [];
     })
     event.target.classList.add("languageSelected");
+    updateLanguage(event.target.dataset.lang)
+    language = event.target.dataset.lang;
+}
+function updateLanguage(lang) {
+    language = lang;
 }
