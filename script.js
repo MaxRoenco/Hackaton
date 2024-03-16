@@ -148,6 +148,7 @@ let noBtn = id("no");
 let frames = document.querySelectorAll(".category-frame");
 
 // artiom
+let finalResult = id("final-score");
 let score = 0;
 let currentCategory = -1;
 
@@ -160,7 +161,6 @@ homeBtn.addEventListener("click", _ => {
 
 
 setActive("menu");
-
 btn.addEventListener("click", moveToCategories);
 
 let index = -1;
@@ -179,7 +179,6 @@ function nextQuestion() {
     let checkAnswer = ans => {
         if (!canClick) return;
         canClick = false;
-        console.log(index, quiz[currentCategory][index]);
         let isCorrect = quiz[currentCategory][index].answer == ans;
         if (isCorrect) score++;
         nextQuestion();
@@ -201,7 +200,6 @@ function moveToCategories() {
 }
 
 function showResults() {
-    console.log(score);
     let goodPercentage = (score / quiz[currentCategory].length) * 100;
     let wrongPercentage = 100 - goodPercentage;
 
@@ -242,7 +240,6 @@ function removeAllChildren(parent) {
 function setActive(tab) {
     let tabs = document.querySelector("body").children;
     Array.from(tabs).forEach(element => {
-        console.log(element.id, "==", tab, ":", element.id === tab);
         if(element.id === tab) {
             show(element);
         } else {
