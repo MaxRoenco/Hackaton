@@ -148,8 +148,6 @@ let yesBtn = id("yes");
 let noBtn = id("no");
 
 //results
-let results = id("results");
-let scoreCounter = id("score");
 
 //categories
 let categories = id("wrapper_categories");
@@ -169,13 +167,12 @@ let currentCategory = -1;
 //home
 let homeBtn = id("home_btn");
 homeBtn.addEventListener("click", _ => {
-    hide(finalResult);
+    hide(finalscore)
     show(menu);
 })
 
 // hide(menu);
 hide(questionSet);
-hide(results);
 hide(categories);
 hide(finalscore);
 hide(wrongans);
@@ -193,6 +190,8 @@ function nextQuestion() {
     if (index >= quiz[currentCategory].length) {
         hide(questionSet);
         showResults();
+        index = -1;
+        score = 0;
         return;
     }
     question.textContent = quiz[currentCategory][index].question;
