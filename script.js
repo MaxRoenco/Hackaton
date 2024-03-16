@@ -163,7 +163,7 @@ let wrongCounter = id("wrong_ans_counter");
 //correct ans
 
 
-
+// initialize
 setActive("menu");
 updateScore(0);
 speak("");
@@ -320,4 +320,33 @@ function toggleSound() {
 }
 function stopSpeech() {
     window.speechSynthesis.cancel();
+}
+function recognizeSpeech() {
+    if ('webkitSpeechRecognition' in window) {
+        var recognition = new webkitSpeechRecognition();
+        recognition.lang = 'en-US';
+        recognition.continuous = false;
+
+        recognition.start();
+        
+        // Display "Recording now..." message while listening
+        // document.getElementById('status').innerText = 'Recording now...';
+
+        recognition.onresult = function(event) {
+            var transcript = event.results[0][0].transcript;
+            document.getElementById('transcript').innerText = 'Speech Recognition Result: ' + transcript;
+        };
+
+        recognition.onerror = function(event) {
+            console.error('Speech Recognition Error:', event.error);
+            alert("Speech Recognition Error. Please check console for details.");
+        };
+
+        // Reset the status message when recognition ends
+        recognition.onend = function() {
+            
+        };
+    } else {
+        alert("Sorry, your browser doesn't support speech recognition!");
+    }
 }
