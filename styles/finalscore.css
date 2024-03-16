@@ -1,5 +1,5 @@
 /* Final score */
-.final_score {
+#final_score {
     display: flex;
     flex-direction: column;
     justify-content: center;
