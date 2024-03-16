@@ -171,21 +171,16 @@ homeBtn.addEventListener("click", _ => {
     show(menu);
 })
 
-// hide(menu);
-hide(questionSet);
-hide(categories);
-hide(finalscore);
-hide(wrongans);
-hide(correctans);
-hide(profileStatistics);
 
+
+setActive("menu");
 btn.addEventListener("click", moveToCategories);
 
 let index = -1;
 let canClick = true;
 function nextQuestion() {
     setTimeout(() => canClick = true, 500); // click delay
-    show(questionSet);
+    setActive("question-set");
     index++;
     if (index >= quiz[currentCategory].length) {
         hide(questionSet);
@@ -209,20 +204,14 @@ function nextQuestion() {
 }
 
 function moveToCategories() {
-    hide(menu);
-    show(categories);
+    setActive("wrapper_categories");
     frames.forEach((ele, i) => {
         ele.addEventListener("click", e => {
             let [key, val] = Object.entries(quiz)[i];
             currentCategory = key;
-            startQuiz();
+            nextQuestion();
         })
     })
-}
-
-function startQuiz() {
-    hide(categories);
-    nextQuestion();
 }
 
 function showResults() {
@@ -262,3 +251,17 @@ function removeAllChildren(parent) {
         parent.removeChild(parent.firstChild);
     }
 }
+
+
+function setActive(tab) {
+    let tabs = document.querySelector("body").children;
+    Array.from(tabs).forEach(element => {
+        if(element.id === tab) {
+            show(element);
+        } else {
+            hide(element);
+        }
+    });
+}
+
+setActive("menu");
