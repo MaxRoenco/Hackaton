@@ -11,7 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 700px;
+    width: 600px;
     height: 300px;
     margin-bottom: 40px;
 }
@@ -21,7 +21,6 @@
     position: absolute;
     top: 5%;
     right: 4%;
-
 }
 
 #home_button>#homeimage {
@@ -32,14 +31,20 @@
 }
 
 #homeimage:hover {
+    filter: brightness(1.2) drop-shadow(10px 12px 14px rgba(0, 0, 0, 0.5));
     cursor: pointer;
-    filter: var(--drop-shadow-effect);
 }
 
 .image {
     width: 100%;
-    height: auto;
+    padding: 10px;
+    transition: filter 1s ease;
 }
+
+.image:hover {
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+}
+
 
 #start {
     width: 383.96px;
