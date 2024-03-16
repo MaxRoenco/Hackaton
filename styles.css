@@ -90,6 +90,10 @@ body {
     align-items: center;
 }
 
+.category-frame:hover {
+    filter:brightness(1.2);
+}
+
 .category-frame>.label {
     font-family: "PoetsenOne";
     position: absolute;
