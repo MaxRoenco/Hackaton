@@ -64,6 +64,7 @@
 
 .profile_stats-home:hover {
     filter: brightness(1.4);
+    cursor: pointer;
 }
 
 #profile_statistics_btn {

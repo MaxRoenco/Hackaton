@@ -45,6 +45,11 @@
     background: #209A45;
 }
 
+#start:hover {
+    filter: brightness(1.4);
+    cursor: pointer;
+}
+
 #start>.start {
     font-family: 'Modak';
     font-size: 64px;
