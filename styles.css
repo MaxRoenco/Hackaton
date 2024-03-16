@@ -91,7 +91,7 @@ body {
 }
 
 .category-frame:hover {
-    filter:brightness(1.2);
+    filter: brightness(1.2);
 }
 
 .category-frame>.label {
