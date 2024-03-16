@@ -1,3 +1,4 @@
+
 let id = (s) => document.getElementById(s);
 
 //quiz
