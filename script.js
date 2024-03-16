@@ -153,9 +153,15 @@ let finalResult = id("final-score");
 let score = 0;
 let currentCategory = -1;
 
+//wrong ans
+let correctCounter = id("correct_ans_counter");
+let wrongCounter = id("wrong_ans_counter");
+//correct ans
+
 
 
 setActive("menu");
+updateScore(0);
 
 let index = -1;
 let canClick = true;
@@ -166,7 +172,7 @@ function nextQuestion() {
     if (index >= quiz[currentCategory].length) {
         showResults();
         index = -1;
-        score = 0;
+        updateScore(0);
         return;
     }
     question.textContent = quiz[currentCategory][index].question;
@@ -175,7 +181,7 @@ function nextQuestion() {
         canClick = false;
         let isCorrect = quiz[currentCategory][index].answer == ans;
         if (isCorrect) {
-            score++;
+            updateScore(score+1);
             setActive('correct_answer');
         } else {
             setActive('wrong_answer');
@@ -232,6 +238,11 @@ function removeAllChildren(parent) {
     }
 }
 
+function updateScore(num) {
+    score = num;
+    correctCounter.textContent = score;
+    wrongCounter.textContent = score;
+} 
 
 function setActive(tab) {
     let tabs = document.querySelector("body").children;
