@@ -115,8 +115,8 @@ function showResults() {
     finalResult.textContent = score + "/" + quiz[currentCategory].length;
     finalResult.style.fontFamily = "PoetsenOne";
 
-    let correctColumn = document.querySelector(".diagram_correct");
-    let wrongColumn = document.querySelector(".diagram_wrong");
+    let correctColumn = document.querySelector(".barCorrect");
+    let wrongColumn = document.querySelector(".barWrong");
 
     correctColumn.style.height = `${goodPercentage}%`;
     wrongColumn.style.height = `${wrongPercentage}%`;
