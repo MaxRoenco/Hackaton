@@ -1,0 +1,44 @@
+#settings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+#blockSettings {
+    width: 800px;
+    height: 400px;
+    max-width: 1200px;
+    padding: 20px 40px;
+    margin: 20px auto;
+    background-color: #209A45;
+    border-radius: 37px;
+    border: 5px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#lang_flags {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#lang_flags>div {
+    width: 120px;
+    padding: 20px;
+}
+
+#lang_flags>div>img {
+    width: 100%;
+    height: auto;
+}
+
+.languageSelected {
+    border: 3px solid;
+    border-radius: 30px;
+}
