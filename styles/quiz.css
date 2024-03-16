@@ -1,6 +1,6 @@
 /* Quizzez  */
 
-.wrapper__quizzez {
+.wrapper_quizzez {
     width: 1200px;
     padding: 30px 90px 60px;
     margin: 30px auto;
@@ -53,7 +53,7 @@
     background-color: #209A45;
 }
 
-#question-set {
+#quiz {
     display: flex;
     flex-direction: column;
     justify-content: center;
