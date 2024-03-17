@@ -165,8 +165,15 @@ function removeAllChildren(parent) {
 
 function updateScore(num) {
     score = num;
-    let textWrong = "Wrong answer Score:";
-    let textCorrect = "Correct answer Score:";
+    let textWrong = "Wrong answer Score: ";
+    let textCorrect = "Correct answer Score: ";
+    if(language === 'ro') {
+        textWrong = "Scorul răspunsurilor greșite: ";
+        textCorrect = "Scorul răspunsurilor corecte: ";
+    } else if (language === 'ru') {
+        textWrong = "Очки за неправильные ответы: ";
+        textCorrect = "Очки за правильные ответы: ";
+    }
 
     correctCounter.textContent = textCorrect + score;
     wrongCounter.textContent = textWrong + score;
@@ -329,7 +336,7 @@ function updateLanguage(lang) {
         document.querySelector("#langs_label").textContent = "Limbi";
         document.querySelector(".settings-home").textContent = "Acasă";
         document.querySelector(".start").textContent = "Începe";
-        document.querySelector(".categories_headline").textContent = "Categorii";
+        document.querySelector(".categories_headline").textContent = "Categorii:";
         document.querySelector(".quiz-headline").textContent = "Quiz";
         document.querySelector("#question").textContent = "Întrebare";
         document.querySelector("#no").textContent = "Nu";
@@ -349,7 +356,7 @@ function updateLanguage(lang) {
         document.querySelector("#langs_label").textContent = "Языки";
         document.querySelector(".settings-home").textContent = "Главная";
         document.querySelector(".start").textContent = "Начать";
-        document.querySelector(".categories_headline").textContent = "Категории";
+        document.querySelector(".categories_headline").textContent = "Категории:";
         document.querySelector(".quiz-headline").textContent = "Викторина";
         document.querySelector("#question").textContent = "Вопрос";
         document.querySelector("#no").textContent = "Нет";
@@ -369,7 +376,7 @@ function updateLanguage(lang) {
         document.querySelector("#langs_label").textContent = "Languages";
         document.querySelector(".settings-home").textContent = "Home";
         document.querySelector(".start").textContent = "Start";
-        document.querySelector(".categories_headline").textContent = "Categories";
+        document.querySelector(".categories_headline").textContent = "Categories:";
         document.querySelector(".quiz-headline").textContent = "Quiz";
         document.querySelector("#question").textContent = "Question";
         document.querySelector("#no").textContent = "No";
