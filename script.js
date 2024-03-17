@@ -82,8 +82,9 @@ updateScore(0);
 speak("");
 
 
-document.querySelector("#correct_answer").style.transform = "translateX(100%)";
-document.querySelector("#wrong_answer").style.transform = "translateX(100%)";
+document.querySelector("#correct_answer").style.transform = "translateX(300%)";
+document.querySelector("#wrong_answer").style.transform = "translateX(300%)";
+document.querySelector("#final_score").style.transform = "translateX(300%)";
 
 // manage local storage variables
 let wrongAnswers = +localStorage.getItem('wrongAnswers') || 0;
@@ -104,8 +105,8 @@ function nextQuestion() {
     show(document.querySelector("#correct_answer"));
     show(document.querySelector("#wrong_answer"));
     document.querySelector("#quiz").style.transform = "translateX(0)";
-    document.querySelector("#wrong_answer").style.transform = "translateX(100%)";
-    document.querySelector("#correct_answer").style.transform = "translateX(100%)";
+    document.querySelector("#wrong_answer").style.transform = "translateX(300%)";
+    document.querySelector("#correct_answer").style.transform = "translateX(300%)";
     index++;
     if (index >= quiz[currentCategory].length) {
         index = -1;
@@ -128,14 +129,14 @@ function checkAnswer(ans) {
     if (isCorrect) {
         updateScore(score + 1);
         updateCorrectCount(correctAnswers + 1);
-        document.querySelector("#quiz").style.transform = "translateX(-100%)";
+        document.querySelector("#quiz").style.transform = "translateX(-300%)";
         document.querySelector("#correct_answer").style.transform = "translateX(0)";
         setActive('correct_answer');
         show(document.querySelector("#quiz"));
         playSound("./assets/audio/correct.mp3");
     } else {
         updateWrongCount(wrongAnswers + 1);
-        document.querySelector("#quiz").style.transform = "translateX(-100%)";
+        document.querySelector("#quiz").style.transform = "translateX(-300%)";
         document.querySelector("#wrong_answer").style.transform = "translateX(0%)";
         setActive('wrong_answer');
         show(document.querySelector("#quiz"));
@@ -169,6 +170,7 @@ function showResults() {
     barCorrect.textContent =  gp >= 10 ? `${gp}%` : '';
     barWrong.textContent = wp >= 10 ? `${wp}%` : '';
     setActive("final_score");
+    document.querySelector("#final_score").style.transform = "translateX(0%)";
 }
 
 function show(ele) {
