@@ -1,3 +1,4 @@
+let SFX = (localStorage.getItem('SFX') || 'true') === 'true';
 let id = (s) => document.getElementById(s);
 
 //quiz
@@ -12,6 +13,7 @@ let voiceImage = id("voiceImage");
 let canRecognise = true;
 let recognition;
 quizContainer.addEventListener("click", e => {
+    playSound("./assets/audio/button.mp3")
     if (!canRecognise) {
         cancelRecognition();
     } else {
@@ -91,7 +93,6 @@ let wrongAnswers = +localStorage.getItem('wrongAnswers') || 0;
 let correctAnswers = +localStorage.getItem('correctAnswers') || 0;
 let quizzesDone = +localStorage.getItem('quizzesDone') || 0;
 let isMuted = (localStorage.getItem('isMuted') || false) === 'true';
-let SFX = (localStorage.getItem('SFX') || 'true') === 'true';
 updateCorrectCount(correctAnswers);
 updateWrongCount(wrongAnswers);
 updateQuizzesCount(quizzesDone);
@@ -318,6 +319,7 @@ function updateQuizzesCount(num) {
 }
 
 function toggleSound() {
+    playSound("./assets/audio/button.mp3")
     updateIsMuted(!isMuted);
 }
 
@@ -335,6 +337,7 @@ function updateIsMuted(bool) {
 }
 
 function resetStats() {
+    playSound("./assets/audio/button.mp3")
     updateCorrectCount(0);
     updateWrongCount(0);
     updateQuizzesCount(0);
@@ -357,6 +360,7 @@ function activateFlag(event) {
     language = event.target.dataset.lang;
 }
 function updateLanguage(lang) {
+    playSound("./assets/audio/button.mp3");
     quiz = dataSet[lang];
     language = lang;
     localStorage.setItem('language', lang);
@@ -379,7 +383,7 @@ function updateLanguage(lang) {
         document.querySelector("#no").textContent = "Nu";
         document.querySelector("#yes").textContent = "Da";
         document.querySelector(".final_score-headline").setAttribute('style', 'white-space: pre;');
-        document.querySelector(".final_score-headline").textContent = "Scorul tău \r\nfinal:";
+        document.querySelector(".final_score-headline").textContent = "Scorul tău \r\nfinal: ";
         document.querySelector(".final_score-home").textContent =     "Acasă";
         document.querySelector(".wrong_ans-headline").textContent =   "Scorul răspunsurilor greșite: ";
         document.querySelector(".wrong_ans-next").textContent =       "Următorul";
@@ -400,7 +404,7 @@ function updateLanguage(lang) {
         document.querySelector("#no").textContent =                   "Нет";
         document.querySelector("#yes").textContent =                  "Да";
         document.querySelector(".final_score-headline").setAttribute('style', 'white-space: pre;');
-        document.querySelector(".final_score-headline").textContent = "Ваш итоговый\r\nбалл:";
+        document.querySelector(".final_score-headline").textContent = "Ваш итоговый\r\nбалл: ";
         document.querySelector(".final_score-home").textContent =     "Главная";
         document.querySelector(".wrong_ans-headline").textContent =   "Очки за неправильные ответы: ";
         document.querySelector(".wrong_ans-next").textContent =       "Следующий";
@@ -421,7 +425,7 @@ function updateLanguage(lang) {
         document.querySelector("#no").textContent = "No";
         document.querySelector("#yes").textContent =                  "Yes";
         document.querySelector(".final_score-headline").setAttribute('style', 'white-space: pre;');
-        document.querySelector(".final_score-headline").textContent = "Your final \r\nScore:";
+        document.querySelector(".final_score-headline").textContent = "Your final \r\nScore: ";
         document.querySelector(".final_score-home").textContent =     "Home";
         document.querySelector(".wrong_ans-headline").textContent =   "Wrong answer Score: ";
         document.querySelector(".wrong_ans-next").textContent =       "Next";
@@ -480,6 +484,7 @@ function finalScoreButtonHandler() {
 }
 
 function toggleSFX() {
+    playSound("./assets/audio/button.mp3")
     console.log(SFX)
     updateSFX(!SFX);
 }
