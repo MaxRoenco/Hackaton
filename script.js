@@ -480,13 +480,13 @@ function updateLanguage(lang) {
 
     //corect stat
     let correctStat = document.createElement("span");
-    correctStat.classList.add("profilestats_wrong");
+    correctStat.classList.add("profilestats_correct");
     correctStat.textContent = '0';
     document.querySelectorAll(".profilestats-headline")[0].append(correctStat);
 
     //wront stat
     let wrongStat = document.createElement("span");
-    wrongStat.classList.add("profilestats_correct");
+    wrongStat.classList.add("profilestats_wrong");
     wrongStat.textContent = '0';
     document.querySelectorAll(".profilestats-headline")[1].append(wrongStat);
 
