@@ -192,13 +192,19 @@ function speak(text) {
         // Set the text to be spoken
         msg.text = text;
 
-        // Filter voices to include only English voices
-        var englishVoices = speechSynthesis.getVoices().filter(function (voice) {
-            return voice.lang.startsWith('en');
+        // Filter voices based on the specified language
+        var voices = speechSynthesis.getVoices().filter(function (voice) {
+            return voice.lang.startsWith(language);
         });
 
-        // Set the voice to the first English voice found
-        msg.voice = englishVoices[0];
+        // Check if there are voices available for the specified language
+        if (voices.length > 0) {
+            // Set the voice to the first voice found for the specified language
+            msg.voice = voices[0];
+        } else {
+            console.error("No voices available for the specified language: " + language);
+            return;
+        }
 
         // Speak the text
         speechSynthesis.speak(msg);
