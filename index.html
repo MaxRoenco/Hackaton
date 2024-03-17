@@ -23,13 +23,13 @@
             <h1 id="langs_label">Languages:</h1>
             <div id="lang_flags">
                 <div data-lang="en" class="languageSelected" onclick="activateFlag(event)">
-                    <img src="./assets/images/en.png">
+                    <img src="./assets/images/en.png" draggable="false">
                 </div>
                 <div data-lang="ro" onclick="activateFlag(event)">
-                    <img src="./assets/images/md.png">
+                    <img src="./assets/images/md.png" draggable="false">
                 </div>
                 <div data-lang="ru" onclick="activateFlag(event)">
-                    <img src="./assets/images/ru.png">
+                    <img src="./assets/images/ru.png" draggable="false">
                 </div>
             </div>
         </div>
@@ -41,13 +41,13 @@
     <!-- MENU -->
     <div id="menu">
         <div id="settings_button" onclick="setActive('settings')">
-            <img src="/assets/images/settings.png" id="settingsImage">
+            <img src="/assets/images/settings.png" id="settingsImage" draggable="false">
         </div>
         <div id="home_button" onclick="setActive('profile_statistics')">
-            <img src="/assets/images/home.png" id="homeimage">
+            <img src="/assets/images/home.png" id="homeimage" draggable="false">
         </div>
         <div class="imagecontainer">
-            <img src="/assets/images/Quizer.png" class="image">
+            <img src="/assets/images/Quizer.png" class="image" draggable="false">
         </div>
         <button id="start" role="button" onclick="setActive('categories')">
             <p class="start">Start</p>
@@ -59,24 +59,24 @@
         <h2 class="categories_headline">Categories:</h2>
         <div id="wrapper_categories">
             <div class="row">
-                <div class="category-frame" id="frame1"><img src="/assets/images/1.png">
+                <div class="category-frame" id="frame1"><img src="/assets/images/1.png" draggable="false">
                     <div class="label">HISTORY</div>
                 </div>
-                <div class="category-frame" id="frame2"><img src="/assets/images/2.png">
+                <div class="category-frame" id="frame2"><img src="/assets/images/2.png" draggable="false">
                     <div class="label">TURISM</div>
                 </div>
-                <div class="category-frame" id="frame3"><img src="/assets/images/3.png">
+                <div class="category-frame" id="frame3"><img src="/assets/images/3.png" draggable="false">
                     <div class="label">JOBS</div>
                 </div>
             </div>
             <div class="row">
-                <div class="category-frame" id="frame4"><img src="/assets/images/4.png">
+                <div class="category-frame" id="frame4"><img src="/assets/images/4.png" draggable="false">
                     <div class="label">TECHONOGY</div>
                 </div>
-                <div class="category-frame" id="frame5"><img src="/assets/images/5.png">
+                <div class="category-frame" id="frame5"><img src="/assets/images/5.png" draggable="false">
                     <div class="label">CULTURE</div>
                 </div>
-                <div class="category-frame" id="frame6"><img src="/assets/images/6.png">
+                <div class="category-frame" id="frame6"><img src="/assets/images/6.png" draggable="false">
                     <div class="label">ART</div>
                 </div>
             </div>
@@ -86,14 +86,14 @@
     <!-- Quizz -->
     <div id="quiz">
         <div id="soundContainer" onclick="toggleSound()">
-            <img src="./assets/images/sound_on.png" id="soundImageOn">
-            <img src="./assets/images/sound_off.png" id="soundImageOff" style="display:none;">
+            <img src="./assets/images/sound_on.png" id="soundImageOn" draggable="false">
+            <img src="./assets/images/sound_off.png" id="soundImageOff" style="display:none;" draggable="false">
         </div>
         <div id="wrapper_quizzez">
             <h2 class="quiz-headline">Quiz:</h2>
             <h1 id="question">Question</h1>
             <div id="voiceContainer">
-                <img src="./assets/images/voice1.png" id="voiceImage">
+                <img src="./assets/images/voice1.png" id="voiceImage" draggable="false">
             </div>
         </div>
         <div class="buttons">
@@ -125,7 +125,7 @@
     <!-- WRONG ANSWER BABY -->
     <div id="wrong_answer">
         <div class="wrapper_wrongans">
-            <img src="./assets/images/wrong_ans.png" id="imageWrong">
+            <img src="./assets/images/wrong_ans.png" id="imageWrong" draggable="false">
             <h2 class="wrong_ans-headline">Wrong answer<br> Score: <span class="wrong_ans-nr">3336</span></h2>
         </div>
         <div id="wrong_answer_btn" onclick="nextQuestion()">
@@ -136,7 +136,7 @@
     <!-- CORRECT ANSWER BABY -->
     <div id="correct_answer">
         <div class="wrapper_correct">
-            <img src="./assets/images/correct_ans.png" id="imageCorrect">
+            <img src="./assets/images/correct_ans.png" id="imageCorrect" draggable="false">
             <h2 class="correct_ans-headline">Correct answer<br> Score: <span class="correct_ans-nr">3336</span></h2>
         </div>
         <div id="correct_answer_btn" onclick="nextQuestion()">
