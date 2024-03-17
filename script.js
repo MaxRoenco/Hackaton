@@ -274,7 +274,15 @@ function recognizeSpeech(language) {
             } else if (nos.some(e => theAnswer === e)) {
                 checkAnswer(0);
             } else {
-                if (!isMuted) speak("Sorry, can you repeat that?");
+                if (!isMuted) {
+                    if(language === 'en') {ы
+                        speak("Sorry, can you repeat that?");
+                    } else if(language == 'ru') {
+                        speak("Пожалуйста, повторите сказанное");
+                    } else {
+                        speak("Sorry, can you repeat that?");
+                    }
+                }
             }
         };
         recognition.onerror = function (event) {
