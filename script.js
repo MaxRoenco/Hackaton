@@ -15,7 +15,11 @@ quizContainer.addEventListener("click", e => {
     if (!canRecognise) {
         cancelRecognition();
     } else {
-        recognizeSpeech();
+        let arg = '';
+        if(language === 'en') arg = 'en-US';
+        if(language === 'ro') arg = 'ro-RO';
+        if(language === 'ru') arg = 'ru-RU';
+        recognizeSpeech(arg);
     }
 })
 
@@ -217,12 +221,14 @@ function stopSpeech() {
     window.speechSynthesis.cancel();
 }
 
-function recognizeSpeech() {
+function recognizeSpeech(language) {
     if (!canRecognise) return;
     canRecognise = false;
     if ('webkitSpeechRecognition' in window) {
         recognition = new webkitSpeechRecognition();
-        recognition.lang = 'en-US';
+        
+        // Set the language dynamically
+        recognition.lang = language;
         recognition.continuous = false;
 
         recognition.start();
@@ -233,10 +239,12 @@ function recognizeSpeech() {
 
         recognition.onresult = function (event) {
             var transcript = event.results[0][0].transcript;
-            // alert('Speech Recognition Result: ' + transcript);
-            if (transcript.trim().toLowerCase() === 'yes') {
+            let theAnswer = transcript.trim().toLowerCase();
+            let yess = ['yes', 'да','da','desigur']
+            let nos = ['no', 'нет','nu']
+            if (yess.some(e => theAnswer === e)) {
                 checkAnswer(1);
-            } else if (transcript.trim().toLowerCase() === 'no') {
+            } else if (nos.some(e => theAnswer === e)) {
                 checkAnswer(0);
             } else {
                 if (!isMuted) speak("Sorry, can you repeat that?");
