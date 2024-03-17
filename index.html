@@ -106,7 +106,7 @@
     <!-- FINAL SCORE -->
     <div id="final_score">
         <div class="wrapper_endquiz">
-            <h2 class="final_score-headline">Your final <br> score: <span class="final_score-nr"
+            <h2 class="final_score-headline">Your final <br> Score: <span class="final_score-nr"
                     id="final-score">3465</span></h2>
             <div class="wrapper_diagrams">
                 <div id="barCorrect" class="barCorrect">
@@ -150,14 +150,15 @@
     <!-- Profile statistics -->
     <div id="profile_statistics">
         <div class="wrapper_profilestats">
-            <h2 class="profilestats-headline">Total right answers: <span class="profilestats_correct"
+            <h2 class="profilestats-headline" id="total_right">Total right answers: <span class="profilestats_correct"
                     id="profilecorrect_counter">3456</span></h2>
-            <h2 class="profilestats-headline">Total wrong answers: <span class="profilestats_wrong"
+            <h2 class="profilestats-headline" id="total_wrong">Total wrong answers: <span class="profilestats_wrong"
                     id="profilewrong_counter">34567</span></h2> <br> <br>
-            <h2 class="profilestats-headline">Quizzes done: <span id="profilequizz_done">69</span></h2>
+            <h2 class="profilestats-headline" id="total_quizzes">Quizzes done: <span id="profilequizz_done">69</span>
+            </h2>
             <div id="resetStats" onclick="resetStats()">
                 <div id="resetBox">
-                    <p>Reset</p>
+                    <p id="resetBoxP">Reset</p>
                 </div>
             </div>
         </div>
