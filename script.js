@@ -173,7 +173,11 @@ function showResults() {
     barCorrect.textContent =  gp >= 10 ? `${gp}%` : '';
     barWrong.textContent = wp >= 10 ? `${wp}%` : '';
     setActive("final_score");
+    show(document.querySelector("#correct_answer"));
+    show(document.querySelector("#wrong_answer"));
     document.querySelector("#final_score").style.transform = "translateX(0%)";
+    document.querySelector("#wrong_answer").style.transform = "translateX(-300%)";
+    document.querySelector("#correct_answer").style.transform = "translateX(-300%)";
 }
 
 function show(ele) {
@@ -463,4 +467,11 @@ function updateLanguage(lang) {
     quizStat.id = "profilequizz_done";
     quizStat.textContent = '0';
     document.querySelectorAll(".profilestats-headline")[2].append(quizStat);
+}
+
+function finalScoreButtonHandler() {
+    setActive("menu");
+    document.querySelector("#correct_answer").style.transform = "translateX(300%)";
+    document.querySelector("#wrong_answer").style.transform = "translateX(300%)";
+    document.querySelector("#final_score").style.transform = "translateX(300%)";
 }

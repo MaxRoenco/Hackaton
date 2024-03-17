@@ -5,6 +5,8 @@
     justify-content: center;
     height: 100vh;
     transition: transform 0.5s ease;
+    position: absolute;
+    top: 0px;
 }
 
 .wrapper_endquiz {
