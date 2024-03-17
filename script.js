@@ -275,7 +275,7 @@ function recognizeSpeech(language) {
                 checkAnswer(0);
             } else {
                 if (!isMuted) {
-                    if(language === 'en') {ы
+                    if(language === 'en') {
                         speak("Sorry, can you repeat that?");
                     } else if(language == 'ru') {
                         speak("Пожалуйста, повторите сказанное");
