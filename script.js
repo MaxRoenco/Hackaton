@@ -340,9 +340,9 @@ function updateLanguage(lang) {
         document.querySelector(".final_score-headline").setAttribute('style', 'white-space: pre;');
         document.querySelector(".final_score-headline").textContent = "Scorul tău \r\nfinal:";
         document.querySelector(".final_score-home").textContent =     "Acasă";
-        document.querySelector(".wrong_ans-headline").textContent =   "Scorul răspunsurilor greșite:";
+        document.querySelector(".wrong_ans-headline").textContent =   "Scorul răspunsurilor greșite: ";
         document.querySelector(".wrong_ans-next").textContent =       "Următorul";
-        document.querySelector(".correct_ans-headline").textContent = "Scorul răspunsurilor corecte:";
+        document.querySelector(".correct_ans-headline").textContent = "Scorul răspunsurilor corecte: ";
         document.querySelector(".correct_ans-next").textContent =     "Următorul";
         document.querySelector("#total_right").textContent =          "Total răspunsuri corecte: ";
         document.querySelector("#total_wrong").textContent =          "Total răspunsuri greșite: ";
@@ -361,9 +361,9 @@ function updateLanguage(lang) {
         document.querySelector(".final_score-headline").setAttribute('style', 'white-space: pre;');
         document.querySelector(".final_score-headline").textContent = "Ваш итоговый\r\nбалл:";
         document.querySelector(".final_score-home").textContent =     "Главная";
-        document.querySelector(".wrong_ans-headline").textContent =   "Очки за неправильные ответы:";
+        document.querySelector(".wrong_ans-headline").textContent =   "Очки за неправильные ответы: ";
         document.querySelector(".wrong_ans-next").textContent =       "Следующий";
-        document.querySelector(".correct_ans-headline").textContent = "Очки за правильные ответы:";
+        document.querySelector(".correct_ans-headline").textContent = "Очки за правильные ответы: ";
         document.querySelector(".correct_ans-next").textContent =     "Следующий";
         document.querySelector("#total_right").textContent =          "Всего правильных ответов: ";
         document.querySelector("#total_wrong").textContent =          "Всего неправильных ответов: ";
@@ -382,9 +382,9 @@ function updateLanguage(lang) {
         document.querySelector(".final_score-headline").setAttribute('style', 'white-space: pre;');
         document.querySelector(".final_score-headline").textContent = "Your final \r\nScore:";
         document.querySelector(".final_score-home").textContent =     "Home";
-        document.querySelector(".wrong_ans-headline").textContent =   "Wrong answer Score:";
+        document.querySelector(".wrong_ans-headline").textContent =   "Wrong answer Score: ";
         document.querySelector(".wrong_ans-next").textContent =       "Next";
-        document.querySelector(".correct_ans-headline").textContent = "Correct answer Score:";
+        document.querySelector(".correct_ans-headline").textContent = "Correct answer Score: ";
         document.querySelector(".correct_ans-next").textContent =     "Next";
         document.querySelector("#total_right").textContent =          "Total right answers: ";
         document.querySelector("#total_wrong").textContent =          "Total wrong answers: ";
