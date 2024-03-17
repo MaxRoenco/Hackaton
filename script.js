@@ -237,6 +237,7 @@ function speak(text) {
         }
 
         // Speak the text
+        speech.volume = 1;
         speechSynthesis.speak(msg);
     } else {
         console.error("Sorry, your browser doesn't support text-to-speech!");
@@ -486,7 +487,7 @@ function updateLanguage(lang) {
 
     //wront stat
     let wrongStat = document.createElement("span");
-    wrongStat.classList.add("profilestats_correct");
+    wrongStat.classList.add("profilestats_");
     wrongStat.textContent = '0';
     document.querySelectorAll(".profilestats-headline")[1].append(wrongStat);
 
