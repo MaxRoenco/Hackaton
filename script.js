@@ -97,6 +97,7 @@ let canClick = true;
 function nextQuestion() {
     setTimeout(() => canClick = true, 100); // click delay
     setActive("quiz");
+    document.querySelector("#quiz").style.transform = "translateX(0)";
     index++;
     if (index >= quiz[currentCategory].length) {
         index = -1;
@@ -119,10 +120,13 @@ function checkAnswer(ans) {
     if (isCorrect) {
         updateScore(score + 1);
         updateCorrectCount(correctAnswers + 1);
+        document.querySelector("#quiz").style.transform = "translateX(-100%)";
+        show(document.querySelector("#quiz"));
         setActive('correct_answer');
         playSound("./assets/audio/correct.mp3");
     } else {
         updateWrongCount(wrongAnswers + 1);
+        document.querySelector("#quiz").style.transform = "translateX(-100%)";
         setActive('wrong_answer');
         playSound("./assets/audio/wrong.mp3");
     }
