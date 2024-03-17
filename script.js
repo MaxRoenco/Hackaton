@@ -274,11 +274,12 @@ function recognizeSpeech(language) {
             } else if (nos.some(e => theAnswer === e)) {
                 checkAnswer(0);
             } else {
+                console.log(language);
                 if (!isMuted) {
-                    if(language === 'en') {
+                    if(language === 'en-US') {
                         speak("Sorry, can you repeat that?");
-                    } else if(language == 'ru') {
-                        speak("Пожалуйста, повторите сказанное");
+                    } else if(language == 'ru-RU') {
+                        speak("Пожалуйста, повторите сказанноe!!!");
                     } else {
                         speak("Sorry, can you repeat that?");
                     }
@@ -287,7 +288,15 @@ function recognizeSpeech(language) {
         };
         recognition.onerror = function (event) {
             console.error('Speech Recognition Error:', event.error);
-            if (!isMuted && event.error === 'no-speech') speak("Sorry, can you repeat that?");
+            if (!isMuted && event.error === 'no-speech') {
+                if(language === 'en') {
+                    speak("Sorry, can you repeat that?");
+                } else if(language == 'ru') {
+                    speak("Пожалуйста, повторите сказанное");
+                } else {
+                    speak("Sorry, can you repeat that?");
+                }
+            }
         };
         // Reset the status message when recognition ends
         recognition.onend = function () {
