@@ -13,7 +13,6 @@ let voiceImage = id("voiceImage");
 let canRecognise = true;
 let recognition;
 quizContainer.addEventListener("click", e => {
-    playSound("./assets/audio/button.mp3")
     if (!canRecognise) {
         cancelRecognition();
     } else {
@@ -259,6 +258,7 @@ function recognizeSpeech(language) {
         recognition.continuous = false;
 
         recognition.start();
+        playSound("./assets/audio/recognitionStart.mp3")
 
         // Display "Recording now..." message while listening
         // document.getElementById('status').innerText = 'Recording now...';
@@ -283,6 +283,7 @@ function recognizeSpeech(language) {
         };
         // Reset the status message when recognition ends
         recognition.onend = function () {
+            playSound("./assets/audio/recognitionEnd.mp3")
             voiceImage.style.filter = "invert(0)";
             setTimeout(() => {
                 canRecognise = true;
@@ -394,6 +395,7 @@ function updateLanguage(lang) {
         document.querySelector("#total_quizzes").textContent =        "Quizuri făcute: ";
         document.querySelector("#resetBoxP").textContent =            "Resetare";
         document.querySelector(".profile_stats-home").textContent =   "Acasă";
+        document.querySelector("#SFXText").textContent =              "Efecte Sonore";
     } else if(language === 'ru') {
         document.querySelector("#langs_label").textContent =          "Языки";
         document.querySelector(".settings-home").textContent =        "Главная";
@@ -415,6 +417,7 @@ function updateLanguage(lang) {
         document.querySelector("#total_quizzes").textContent =        "Пройденные викторины: ";
         document.querySelector("#resetBoxP").textContent =            "Сбросить";
         document.querySelector(".profile_stats-home").textContent =   "Главная";
+        document.querySelector("#SFXText").textContent =              "Звуковые Эффекты";
     } else {
         document.querySelector("#langs_label").textContent =          "Languages";
         document.querySelector(".settings-home").textContent =        "Home";
@@ -436,6 +439,7 @@ function updateLanguage(lang) {
         document.querySelector("#total_quizzes").textContent =        "Quizzes done: ";
         document.querySelector("#resetBoxP").textContent =            "Reset";
         document.querySelector(".profile_stats-home").textContent =   "Home";
+        document.querySelector("#SFXText").textContent =              "Sound Effects";
     }
     
      //correct_ans_counter
