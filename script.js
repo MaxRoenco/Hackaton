@@ -410,37 +410,37 @@ function updateLanguage(lang) {
      //correct_ans_counter
      let correctSpan = document.createElement("span");
      correctSpan.classList.add("correct_ans-nr");
-     correctSpan.textContent = '';
+     correctSpan.textContent = '0';
      correctCounter.append(correctSpan);
 
      //wrong_ans_counter
      let wrongSpan = document.createElement("span");
      wrongSpan.classList.add("wrong_ans-nr");
-     wrongSpan.textContent = '';
+     wrongSpan.textContent = '0';
      wrongCounter.append(wrongSpan);
 
      //final score
     let finalResult = document.createElement("span");
     finalResult.classList.add("final_score-nr");
-    finalResult.textContent = '';
+    finalResult.textContent = '0';
     finalResult.style.fontFamily = "PoetsenOne";
     document.querySelector(".final_score-headline").append(finalResult);
 
     //corect stat
     let correctStat = document.createElement("span");
     correctStat.classList.add("profilestats_wrong");
-    correctStat.textContent = '';
+    correctStat.textContent = '0';
     document.querySelectorAll(".profilestats-headline")[0].append(correctStat);
 
     //wront stat
     let wrongStat = document.createElement("span");
     wrongStat.classList.add("profilestats_correct");
-    wrongStat.textContent = '';
+    wrongStat.textContent = '0';
     document.querySelectorAll(".profilestats-headline")[1].append(wrongStat);
 
     //wront stat
     let quizStat = document.createElement("span");
     quizStat.id = "profilequizz_done";
-    quizStat.textContent = '';
+    quizStat.textContent = '0';
     document.querySelectorAll(".profilestats-headline")[2].append(quizStat);
 }
