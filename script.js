@@ -81,6 +81,10 @@ setActive("menu");
 updateScore(0);
 speak("");
 
+
+document.querySelector("#correct_answer").style.transform = "translateX(100%)";
+document.querySelector("#wrong_answer").style.transform = "translateX(100%)";
+
 // manage local storage variables
 let wrongAnswers = +localStorage.getItem('wrongAnswers') || 0;
 let correctAnswers = +localStorage.getItem('correctAnswers') || 0;
@@ -97,6 +101,8 @@ let canClick = true;
 function nextQuestion() {
     setTimeout(() => canClick = true, 100); // click delay
     setActive("quiz");
+    show(document.querySelector("#correct_answer"));
+    show(document.querySelector("#wrong_answer"));
     document.querySelector("#quiz").style.transform = "translateX(0)";
     index++;
     if (index >= quiz[currentCategory].length) {
@@ -121,13 +127,16 @@ function checkAnswer(ans) {
         updateScore(score + 1);
         updateCorrectCount(correctAnswers + 1);
         document.querySelector("#quiz").style.transform = "translateX(-100%)";
-        show(document.querySelector("#quiz"));
+        document.querySelector("#correct_answer").style.transform = "translateX(0)";
         setActive('correct_answer');
+        show(document.querySelector("#quiz"));
         playSound("./assets/audio/correct.mp3");
     } else {
         updateWrongCount(wrongAnswers + 1);
         document.querySelector("#quiz").style.transform = "translateX(-100%)";
+        document.querySelector("#wrong_answer").style.transform = "translateX(0%)";
         setActive('wrong_answer');
+        show(document.querySelector("#quiz"));
         playSound("./assets/audio/wrong.mp3");
     }
 }
