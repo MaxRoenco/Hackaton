@@ -340,6 +340,7 @@ function resetStats() {
 }
 
 function playSound(path) {
+    if(!SFX) return;
     var audio = new Audio(path);
     audio.play();
 }
