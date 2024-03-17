@@ -104,6 +104,7 @@ function nextQuestion() {
     setActive("quiz");
     show(document.querySelector("#correct_answer"));
     show(document.querySelector("#wrong_answer"));
+    show(document.querySelector("#final_score"));
     document.querySelector("#quiz").style.transform = "translateX(0)";
     document.querySelector("#wrong_answer").style.transform = "translateX(300%)";
     document.querySelector("#correct_answer").style.transform = "translateX(300%)";
@@ -133,6 +134,7 @@ function checkAnswer(ans) {
         document.querySelector("#correct_answer").style.transform = "translateX(0)";
         setActive('correct_answer');
         show(document.querySelector("#quiz"));
+        show(document.querySelector("#final_score"));
         playSound("./assets/audio/correct.mp3");
     } else {
         updateWrongCount(wrongAnswers + 1);
@@ -140,6 +142,7 @@ function checkAnswer(ans) {
         document.querySelector("#wrong_answer").style.transform = "translateX(0%)";
         setActive('wrong_answer');
         show(document.querySelector("#quiz"));
+        show(document.querySelector("#final_score"));
         playSound("./assets/audio/wrong.mp3");
     }
 }
