@@ -1,4 +1,3 @@
-
 let id = (s) => document.getElementById(s);
 
 //quiz
@@ -323,4 +322,25 @@ function updateLanguage(lang) {
             ele.classList.add("languageSelected");
         }
     })
+    if(language) {
+        document.querySelector("#langs_label").textContent = "Languages";
+        document.querySelector(".settings-home").textContent = "Home"; //Home
+        document.querySelector(".start").textContent = "Start"; //Start
+        document.querySelector(".categories_headline").textContent = "Categories"; //Categories:
+        document.querySelector(".quiz-headline").textContent = "Quiz"; //Quiz:
+        document.querySelector("#question").textContent = "Question"; //Question
+        document.querySelector("#no").textContent = "No"; //No
+        document.querySelector("#yes").textContent = "Yes"; //Yes
+        document.querySelector("final_score-headline").textContent = "Your final Score:"; // Your final Score:
+        document.querySelector(".final_score-home").textContent = "Home"; // Home
+        document.querySelector(".wrong_ans-headline").textContent = "Wrong answer Score:"; // Wrong answer Score:
+        document.querySelector(".wrong_ans-next").textContent = "Next"; // Next
+        document.querySelector(".correct_ans-headline").textContent = "Correct answer Score:"; // Correct answer Score:
+        document.querySelector(".correct_ans-next").textContent = "Next"; // Next
+        document.querySelector("#total_right").textContent = "Total right answers:"; // Total right answers:
+        document.querySelector("#total_wrong").textContent = "Total wrong answers:"; // Total wrong answers:
+        document.querySelector("#total_quizzes").textContent = "Quizzes done:"; // Quizzes done:
+        document.querySelector("#resetBoxP").textContent = "Reset"; // Reset
+        document.querySelector(".profile_stats-home").textContent = "Home"; // Home
+    }
 }
