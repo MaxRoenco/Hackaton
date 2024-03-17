@@ -174,9 +174,22 @@ function updateScore(num) {
         textWrong = "Очки за неправильные ответы: ";
         textCorrect = "Очки за правильные ответы: ";
     }
+    
+    correctCounter.textContent = '';
+    wrongCounter.textContent = '';
 
-    correctCounter.textContent = textCorrect + score;
-    wrongCounter.textContent = textWrong + score;
+    //correct_ans_counter
+    let correctSpan = document.createElement("span");
+    correctSpan.classList.add("correct_ans-nr");
+    correctSpan.textContent = score;
+    correctCounter.textContent = textCorrect;
+    correctCounter.append(correctSpan);
+    //wrong_ans_counter
+    let wrongSpan = document.createElement("span");
+    wrongSpan.classList.add("wrong_ans-nr");
+    wrongSpan.textContent = score;
+    wrongCounter.textContent = textWrong;
+    wrongCounter.append(wrongSpan);
 }
 
 function setActive(tab) {
