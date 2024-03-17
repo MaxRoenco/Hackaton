@@ -104,6 +104,8 @@ function nextQuestion() {
     show(document.querySelector("#correct_answer"));
     show(document.querySelector("#wrong_answer"));
     document.querySelector("#quiz").style.transform = "translateX(0)";
+    document.querySelector("#wrong_answer").style.transform = "translateX(100%)";
+    document.querySelector("#correct_answer").style.transform = "translateX(100%)";
     index++;
     if (index >= quiz[currentCategory].length) {
         index = -1;
