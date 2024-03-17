@@ -90,12 +90,13 @@ document.querySelector("#final_score").style.transform = "translateX(300%)";
 let wrongAnswers = +localStorage.getItem('wrongAnswers') || 0;
 let correctAnswers = +localStorage.getItem('correctAnswers') || 0;
 let quizzesDone = +localStorage.getItem('quizzesDone') || 0;
-let isMuted = localStorage.getItem('isMuted') === 'true' || false;
-
+let isMuted = (localStorage.getItem('isMuted') || false) === 'true';
+let SFX = (localStorage.getItem('SFX') || 'true') === 'true';
 updateCorrectCount(correctAnswers);
 updateWrongCount(wrongAnswers);
 updateQuizzesCount(quizzesDone);
 updateIsMuted(isMuted);
+updateSFX(SFX);
 
 let index = -1;
 let canClick = true;
@@ -474,4 +475,21 @@ function finalScoreButtonHandler() {
     document.querySelector("#correct_answer").style.transform = "translateX(300%)";
     document.querySelector("#wrong_answer").style.transform = "translateX(300%)";
     document.querySelector("#final_score").style.transform = "translateX(300%)";
+}
+
+function toggleSFX() {
+    console.log(SFX)
+    updateSFX(!SFX);
+}
+
+function updateSFX(bool) {
+    SFX = bool;
+    localStorage.setItem('SFX', bool);
+    if (SFX) {
+        hide(document.querySelector("#settingsImageSoundsOff"));
+        show(document.querySelector("#settingsImageSoundsOn"));
+    } else {
+        show(document.querySelector("#settingsImageSoundsOff"));
+        hide(document.querySelector("#settingsImageSoundsOn"));
+    }
 }
