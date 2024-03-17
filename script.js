@@ -202,6 +202,7 @@ function updateScore(num) {
 }
 
 function setActive(tab) {
+    playSound("./assets/audio/button.mp3")
     let tabs = document.querySelector("body").children;
     Array.from(tabs).forEach(element => {
         if (element.id === tab) {
