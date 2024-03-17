@@ -194,7 +194,7 @@ function speak(text) {
 
         // Filter voices based on the specified language
         var voices = speechSynthesis.getVoices().filter(function (voice) {
-            return voice.lang.startsWith(language);
+            return voice.lang.startsWith(language !== 'ru' ? 'en' : 'ru');
         });
 
         // Check if there are voices available for the specified language
